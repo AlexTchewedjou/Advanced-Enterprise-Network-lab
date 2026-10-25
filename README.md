@@ -189,15 +189,15 @@ advanced-enterprise-network-lab/
 │ └── ISP-B.txt
 │
 └── screenshots/
-├── topology.png
-├── bgp-dual-isp.png
-├── ospf-multi-area.png
-├── hsrp-active.png
-├── hsrp-standby.png
-├── etherchannel.png
-├── vrf-routing.png
-├── vlan-trunk.png
-└── ping-internet.png           
+    ├── topology.png
+    ├── bgp-dual-isp.png
+    ├── ospf-multi-area.png
+    ├── hsrp-active.png
+    ├── hsrp-standby.png
+    ├── etherchannel.png
+    ├── vrf-routing.png
+    ├── vlan-trunk.png
+    └── ping-internet.png           
 
 ---
 
