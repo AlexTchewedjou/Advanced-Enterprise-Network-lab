@@ -225,7 +225,7 @@ These features are fully configured and production-ready. They would function co
 ## 👤 Author
 
 **Alex Tchewedjou**
-Network Engineer | 
+Cybersecurity Analyst| Network Engineer | 
 
 🔗 [LinkedIn](www.linkedin.com/in/alex-tchewedjou-6a2b051a3)
 🐙 [GitHub](https://github.com/AlexTchewedjou)
