@@ -1,0 +1,43 @@
+hostname Access-SW
+!
+spanning-tree mode rapid-pvst
+!
+vlan 10
+ name HR
+vlan 20
+ name IT
+vlan 30
+ name SERVERS
+vlan 40
+ name MANAGEMENT
+vlan 99
+ name NATIVE
+!
+interface FastEthernet0/1
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,30,40
+ spanning-tree guard root
+ no shutdown
+!
+interface range FastEthernet0/2 - 5
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ no shutdown
+!
+interface range FastEthernet0/6 - 8
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ no shutdown
+!
+interface vlan 40
+ ip address 10.40.40.50 255.255.255.0
+ no shutdown
+!
+ip default-gateway 10.40.40.1
+!
+end

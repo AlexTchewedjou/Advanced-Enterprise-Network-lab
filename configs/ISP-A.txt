@@ -1,0 +1,15 @@
+hostname ISP-A
+!
+ip routing
+!
+interface FastEthernet0/0
+ ip address 203.0.113.1 255.255.255.252
+ no shutdown
+!
+router bgp 100
+ neighbor 203.0.113.2 remote-as 65000
+ network 203.0.113.0 mask 255.255.255.252
+!
+ip route 0.0.0.0 0.0.0.0 FastEthernet0/0
+!
+end

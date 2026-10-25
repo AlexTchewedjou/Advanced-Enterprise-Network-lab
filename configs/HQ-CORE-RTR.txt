@@ -1,0 +1,60 @@
+hostname HQ-CORE-RTR
+!
+ip routing
+!
+interface FastEthernet0/0
+ ip address 10.0.0.2 255.255.255.252
+ ip access-group PROTECT-MGMT in
+ no shutdown
+!
+interface FastEthernet1/0
+ ip address 10.1.0.1 255.255.255.252
+ no shutdown
+!
+interface FastEthernet2/0
+ ip address 10.2.0.1 255.255.255.252
+ no shutdown
+!
+router ospf 1
+ router-id 2.2.2.2
+ network 10.0.0.0 0.0.0.3 area 0
+ network 10.1.0.0 0.0.0.3 area 1
+ network 10.2.0.0 0.0.0.3 area 2
+ area 1 range 10.100.0.0 255.255.0.0
+ area 2 range 10.10.0.0 255.255.0.0
+ redistribute eigrp 100 subnets metric-type 2
+!
+router eigrp 100
+ network 10.100.0.0 0.0.0.255
+ redistribute ospf 1 metric 10000 100 255 1 1500
+ no auto-summary
+!
+ip dhcp excluded-address 10.10.10.1 10.10.10.20
+ip dhcp excluded-address 10.20.20.1 10.20.20.20
+ip dhcp excluded-address 10.30.30.1 10.30.30.20
+ip dhcp excluded-address 10.40.40.1 10.40.40.20
+!
+ip dhcp pool VLAN10-HR
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1
+ dns-server 8.8.8.8
+!
+ip dhcp pool VLAN20-IT
+ network 10.20.20.0 255.255.255.0
+ default-router 10.20.20.1
+ dns-server 8.8.8.8
+!
+ip dhcp pool VLAN30-SERVERS
+ network 10.30.30.0 255.255.255.0
+ default-router 10.30.30.1
+!
+ip dhcp pool VLAN40-MGMT
+ network 10.40.40.0 255.255.255.0
+ default-router 10.40.40.1
+!
+ip access-list extended PROTECT-MGMT
+ deny ip 172.16.0.0 0.0.255.255 10.40.40.0 0.0.0.255
+ deny ip 10.10.10.0 0.0.0.255 10.30.30.0 0.0.0.255
+ permit ip any any
+!
+end

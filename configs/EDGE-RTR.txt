@@ -1,0 +1,44 @@
+hostname EDGE-RTR
+!
+ip routing
+!
+interface FastEthernet0/0
+ ip address 203.0.113.2 255.255.255.252
+ ip nat outside
+ no shutdown
+!
+interface FastEthernet1/0
+ ip address 198.51.100.2 255.255.255.252
+ no shutdown
+!
+interface FastEthernet2/0
+ ip address 10.0.0.1 255.255.255.252
+ ip nat inside
+ no shutdown
+!
+interface Tunnel0
+ ip address 10.100.0.1 255.255.255.0
+ ip nhrp map multicast dynamic
+ ip nhrp network-id 1
+ tunnel source FastEthernet0/0
+ tunnel mode gre multipoint
+ no shutdown
+!
+router ospf 1
+ router-id 1.1.1.1
+ network 10.0.0.0 0.0.0.3 area 0
+ network 10.100.0.0 0.0.0.255 area 0
+ default-information originate always
+!
+router bgp 65000
+ bgp router-id 1.1.1.1
+ neighbor 203.0.113.1 remote-as 100
+ neighbor 198.51.100.1 remote-as 200
+!
+ip access-list standard NAT-INTERNAL
+ permit 10.0.0.0 0.255.255.255
+ permit 172.16.0.0 0.0.255.255
+!
+ip nat inside source list NAT-INTERNAL interface FastEthernet0/0 overload
+!
+end

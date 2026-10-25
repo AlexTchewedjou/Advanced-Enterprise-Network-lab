@@ -1,0 +1,37 @@
+hostname DC-SW
+!
+spanning-tree mode rapid-pvst
+!
+vlan 100
+ name DC-PROD
+vlan 200
+ name DC-MGMT
+!
+spanning-tree vlan 100,200 priority 8192
+!
+interface FastEthernet0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 100,200
+ no shutdown
+!
+interface range FastEthernet0/2 - 5
+ switchport mode access
+ switchport access vlan 100
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ no shutdown
+!
+interface range FastEthernet0/6 - 8
+ switchport mode access
+ switchport access vlan 200
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+ no shutdown
+!
+interface vlan 200
+ ip address 10.100.20.50 255.255.255.0
+ no shutdown
+!
+ip default-gateway 10.100.20.1
+!
+end

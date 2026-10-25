@@ -1,0 +1,45 @@
+hostname DC-RTR
+!
+ip routing
+!
+ip vrf PROD
+!
+ip vrf MGMT
+!
+interface FastEthernet0/0
+ ip address 10.1.0.2 255.255.255.252
+ no shutdown
+!
+interface FastEthernet1/0
+ no shutdown
+!
+interface FastEthernet1/0.100
+ encapsulation dot1Q 100
+ ip vrf forwarding PROD
+ ip address 10.100.10.1 255.255.255.0
+ no shutdown
+!
+interface FastEthernet1/0.200
+ encapsulation dot1Q 200
+ ip vrf forwarding MGMT
+ ip address 10.100.20.1 255.255.255.0
+ no shutdown
+!
+router ospf 1
+ router-id 3.3.3.3
+ network 10.1.0.0 0.0.0.3 area 1
+ passive-interface FastEthernet1/0.100
+ passive-interface FastEthernet1/0.200
+!
+ip dhcp excluded-address 10.100.10.1 10.100.10.10
+ip dhcp excluded-address 10.100.20.1 10.100.20.10
+!
+ip dhcp pool DC-PROD
+ network 10.100.10.0 255.255.255.0
+ default-router 10.100.10.1
+!
+ip dhcp pool DC-MGMT
+ network 10.100.20.0 255.255.255.0
+ default-router 10.100.20.1
+!
+end

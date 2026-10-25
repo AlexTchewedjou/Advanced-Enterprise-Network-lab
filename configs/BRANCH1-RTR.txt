@@ -1,0 +1,43 @@
+hostname BRANCH1-RTR
+!
+ip routing
+!
+interface FastEthernet0/0
+ ip address 203.0.114.1 255.255.255.252
+ ip nat outside
+ no shutdown
+!
+interface FastEthernet1/0
+ ip address 172.16.1.1 255.255.255.0
+ ip nat inside
+ no shutdown
+!
+interface Tunnel0
+ ip address 10.100.0.2 255.255.255.0
+ ip nhrp map 10.100.0.1 203.0.113.2
+ ip nhrp map multicast 203.0.113.2
+ ip nhrp network-id 1
+ ip nhrp nhs 10.100.0.1
+ tunnel source FastEthernet0/0
+ tunnel mode gre multipoint
+ no shutdown
+!
+router eigrp 100
+ network 172.16.1.0 0.0.0.255
+ network 10.100.0.0 0.0.0.255
+ no auto-summary
+!
+ip dhcp excluded-address 172.16.1.1 172.16.1.10
+!
+ip dhcp pool BRANCH1-LAN
+ network 172.16.1.0 255.255.255.0
+ default-router 172.16.1.1
+ dns-server 8.8.8.8
+!
+ip access-list standard BRANCH1-NAT
+ permit 172.16.1.0 0.0.0.255
+!
+ip nat inside source list BRANCH1-NAT interface FastEthernet0/0 overload
+ip route 0.0.0.0 0.0.0.0 FastEthernet0/0
+!
+end
