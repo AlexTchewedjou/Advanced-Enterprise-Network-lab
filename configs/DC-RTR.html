@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://netsim.boson.com/lab -->
+<html lang="en" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>NetSim™ Online</title>
+    <!--<base href="/">--><base href=".">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The Boson™ NetSim™ Network Simulator™ is an application that simulates networking and is designed to aid you in learning the Cisco IOS command structure.">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="theme-color" content="#493D91">
+    <link rel="icon" type="image/x-icon" href="https://netsim.boson.com/assets/images/NetSim_XP_64x64.ico">
+  <link rel="stylesheet" href="./DC-RTR_files/styles.css"><style>.root-container[_ngcontent-ng-c3248407304] {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.router-outlet-container[_ngcontent-ng-c3248407304] {
+  flex-grow: 1;
+  max-height: 100%;
+  min-height: 0;
+}
+
+.menu-container[_ngcontent-ng-c3248407304] {
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0VBQ0EsYUFBQTtBQUNGOztBQUVBO0VBQ0UsWUFBQTtFQUNBLGdCQUFBO0VBQ0EsYUFBQTtBQUNGOztBQUVBO0VBQ0UsNEJBQUE7RUFBQSx1QkFBQTtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsiLnJvb3QtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgaGVpZ2h0OiAxMDB2aDtcbn1cblxuLnJvdXRlci1vdXRsZXQtY29udGFpbmVyIHtcbiAgZmxleC1ncm93OiAxO1xuICBtYXgtaGVpZ2h0OiAxMDAlO1xuICBtaW4taGVpZ2h0OiAwO1xufVxuXG4ubWVudS1jb250YWluZXIge1xuICBtaW4taGVpZ2h0OiBmaXQtY29udGVudDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.navbar[_ngcontent-ng-c1340234396] {
+  background-color: var(--NetSimPrimary);
+  padding: 0;
+}
+
+.navbar-brand[_ngcontent-ng-c1340234396] {
+  margin-right: 0;
+  padding-top: 0.4rem;
+  padding-right: 8px;
+  padding-bottom: 0.75rem;
+  padding-left: 8px;
+}
+
+.navbar-brand[_ngcontent-ng-c1340234396]:hover {
+  background-color: #5f53a1;
+}
+
+.nav-item[_ngcontent-ng-c1340234396] {
+  padding: 4px 8px;
+}
+
+.nav-item[_ngcontent-ng-c1340234396]:hover, .nav-item.active[_ngcontent-ng-c1340234396] {
+  background-color: #5f53a1;
+}
+
+.navbar-dark[_ngcontent-ng-c1340234396]   .navbar-nav[_ngcontent-ng-c1340234396]   .nav-link[_ngcontent-ng-c1340234396] {
+  color: var(--NetSimPrimaryText);
+}
+
+.nav-link[_ngcontent-ng-c1340234396] {
+  text-transform: none;
+}
+
+.navbar-light[_ngcontent-ng-c1340234396]   .navbar-nav[_ngcontent-ng-c1340234396]   .nav-item[_ngcontent-ng-c1340234396]    > .nav-link[_ngcontent-ng-c1340234396] {
+  color: var(--NetSimPrimaryText);
+}
+
+.dropdown-item[_ngcontent-ng-c1340234396]:focus, .dropdown-item[_ngcontent-ng-c1340234396]:hover {
+  background-color: var(--NetSimPrimary);
+  color: var(--NetSimPrimaryText) !important;
+}
+
+.dropdown-menu[_ngcontent-ng-c1340234396] {
+  margin-top: -0.5rem;
+  background-color: var(--BackgroundPrimary);
+}
+
+.dropdown-item[_ngcontent-ng-c1340234396] {
+  color: var(--PanePrimaryText);
+}
+
+.navbar-light[_ngcontent-ng-c1340234396]   .navbar-toggler[_ngcontent-ng-c1340234396] {
+  color: var(--NetSimPrimaryText);
+}
+
+.disabled[_ngcontent-ng-c1340234396] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.home-icon[_ngcontent-ng-c1340234396] {
+  height: 24px;
+  width: 24px;
+}
+
+.dropdown-toggle[_ngcontent-ng-c1340234396]:after {
+  all: unset;
+}
+
+.mdi[_ngcontent-ng-c1340234396] {
+  vertical-align: middle;
+  font-size: 0.5rem;
+}
+
+.dropdown-item[_ngcontent-ng-c1340234396]    > .nav-link[_ngcontent-ng-c1340234396] {
+  color: #212529;
+}
+
+
+
+.dropdown-submenu[_ngcontent-ng-c1340234396]:hover    > ul.dropdown-menu[_ngcontent-ng-c1340234396] {
+  display: block;
+}
+
+.dropdown-submenu[_ngcontent-ng-c1340234396] {
+  position: relative;
+}
+
+.dropdown-submenu[_ngcontent-ng-c1340234396]    > .dropdown-menu[_ngcontent-ng-c1340234396] {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+}
+
+.dropdown-submenu[_ngcontent-ng-c1340234396]   .dropdown-toggle[_ngcontent-ng-c1340234396]::after {
+  content: none;
+}
+
+.dropdown-submenu[_ngcontent-ng-c1340234396]   .mdi[_ngcontent-ng-c1340234396] {
+  float: right;
+}
+
+.nav-item.inverted[_ngcontent-ng-c1340234396] {
+  background-color: var(--NetSimPrimaryText);
+}
+
+.nav-item.inverted[_ngcontent-ng-c1340234396]:hover {
+  background-color: #f7f7f7;
+}
+
+.nav-item.inverted[_ngcontent-ng-c1340234396]   a[_ngcontent-ng-c1340234396] {
+  color: var(--NetSimPrimary) !important;
+}
+
+.dropdown-menu-right[_ngcontent-ng-c1340234396]   .mdi[_ngcontent-ng-c1340234396]:before {
+  font-size: 1.2rem;
+  top: 0;
+  opacity: 0.8;
+}
+
+.nav-hidden[_ngcontent-ng-c1340234396] {
+  display: none;
+}
+
+.nav-hidden-content[_ngcontent-ng-c1340234396] {
+  background-color: var(--BackgroundPrimary);
+  height: 100vh;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvbWFpbi1tZW51L21haW4tbWVudS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHNDQUFBO0VBQ0EsVUFBQTtBQUNGOztBQUVBO0VBQ0UsZUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSx1QkFBQTtFQUNBLGlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSx5QkFBQTtBQUNGOztBQUVBO0VBQ0UsZ0JBQUE7QUFDRjs7QUFFQTs7RUFFRSx5QkFBQTtBQUNGOztBQUVBO0VBQ0UsK0JBQUE7QUFDRjs7QUFFQTtFQUNFLG9CQUFBO0FBQ0Y7O0FBRUE7RUFDRSwrQkFBQTtBQUNGOztBQUVBOztFQUVFLHNDQUFBO0VBQ0EsMENBQUE7QUFDRjs7QUFFQTtFQUNFLG1CQUFBO0VBQ0EsMENBQUE7QUFDRjs7QUFFQTtFQUNFLDZCQUFBO0FBQ0Y7O0FBRUE7RUFDRSwrQkFBQTtBQUNGOztBQUVBO0VBQ0UsWUFBQTtFQUNBLG9CQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0VBQ0EsV0FBQTtBQUNGOztBQUVBO0VBQ0UsVUFBQTtBQUNGOztBQUVBO0VBQ0Usc0JBQUE7RUFDQSxpQkFBQTtBQUNGOztBQUVBO0VBQ0UsY0FBQTtBQUNGOztBQUVBLHFCQUFBO0FBQ0E7RUFDRSxjQUFBO0FBQ0Y7O0FBRUE7RUFDRSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsTUFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtBQUNGOztBQUVBO0VBQ0UsWUFBQTtBQUNGOztBQUVBO0VBQ0UsMENBQUE7QUFDRjs7QUFFQTtFQUNFLHlCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxzQ0FBQTtBQUNGOztBQUVBO0VBQ0UsaUJBQUE7RUFDQSxNQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtBQUNGOztBQUVBO0VBQ0UsMENBQUE7RUFDQSxhQUFBO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2YmFyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tTmV0U2ltUHJpbWFyeSk7XG4gIHBhZGRpbmc6IDA7XG59XG5cbi5uYXZiYXItYnJhbmQge1xuICBtYXJnaW4tcmlnaHQ6IDA7XG4gIHBhZGRpbmctdG9wOiAwLjRyZW07XG4gIHBhZGRpbmctcmlnaHQ6IDhweDtcbiAgcGFkZGluZy1ib3R0b206IDAuNzVyZW07XG4gIHBhZGRpbmctbGVmdDogOHB4O1xufVxuXG4ubmF2YmFyLWJyYW5kOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzVmNTNhMTtcbn1cblxuLm5hdi1pdGVtIHtcbiAgcGFkZGluZzogNHB4IDhweDtcbn1cblxuLm5hdi1pdGVtOmhvdmVyLFxuLm5hdi1pdGVtLmFjdGl2ZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM1ZjUzYTE7XG59XG5cbi5uYXZiYXItZGFyayAubmF2YmFyLW5hdiAubmF2LWxpbmsge1xuICBjb2xvcjogdmFyKC0tTmV0U2ltUHJpbWFyeVRleHQpO1xufVxuXG4ubmF2LWxpbmsge1xuICB0ZXh0LXRyYW5zZm9ybTogbm9uZTtcbn1cblxuLm5hdmJhci1saWdodCAubmF2YmFyLW5hdiAubmF2LWl0ZW0gPiAubmF2LWxpbmsge1xuICBjb2xvcjogdmFyKC0tTmV0U2ltUHJpbWFyeVRleHQpO1xufVxuXG4uZHJvcGRvd24taXRlbTpmb2N1cyxcbi5kcm9wZG93bi1pdGVtOmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tTmV0U2ltUHJpbWFyeSk7XG4gIGNvbG9yOiB2YXIoLS1OZXRTaW1QcmltYXJ5VGV4dCkgIWltcG9ydGFudDtcbn1cblxuLmRyb3Bkb3duLW1lbnUge1xuICBtYXJnaW4tdG9wOiAtMC41cmVtO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG59XG5cbi5kcm9wZG93bi1pdGVtIHtcbiAgY29sb3I6IHZhcigtLVBhbmVQcmltYXJ5VGV4dCk7XG59XG5cbi5uYXZiYXItbGlnaHQgLm5hdmJhci10b2dnbGVyIHtcbiAgY29sb3I6IHZhcigtLU5ldFNpbVByaW1hcnlUZXh0KTtcbn1cblxuLmRpc2FibGVkIHtcbiAgb3BhY2l0eTogMC41O1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbn1cblxuLmhvbWUtaWNvbiB7XG4gIGhlaWdodDogMjRweDtcbiAgd2lkdGg6IDI0cHg7XG59XG5cbi5kcm9wZG93bi10b2dnbGU6YWZ0ZXIge1xuICBhbGw6IHVuc2V0O1xufVxuXG4ubWRpIHtcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgZm9udC1zaXplOiAwLjVyZW07XG59XG5cbi5kcm9wZG93bi1pdGVtID4gLm5hdi1saW5rIHtcbiAgY29sb3I6ICMyMTI1Mjk7XG59XG5cbi8qIERyb3Bkb3duIFN1Ym1lbnUgKi9cbi5kcm9wZG93bi1zdWJtZW51OmhvdmVyID4gdWwuZHJvcGRvd24tbWVudSB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufVxuXG4uZHJvcGRvd24tc3VibWVudSB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLmRyb3Bkb3duLXN1Ym1lbnUgPiAuZHJvcGRvd24tbWVudSB7XG4gIHRvcDogMDtcbiAgbGVmdDogMTAwJTtcbiAgbWFyZ2luLXRvcDogLTZweDtcbn1cblxuLmRyb3Bkb3duLXN1Ym1lbnUgLmRyb3Bkb3duLXRvZ2dsZTo6YWZ0ZXIge1xuICBjb250ZW50OiBub25lO1xufVxuXG4uZHJvcGRvd24tc3VibWVudSAubWRpIHtcbiAgZmxvYXQ6IHJpZ2h0O1xufVxuXG4ubmF2LWl0ZW0uaW52ZXJ0ZWQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1OZXRTaW1QcmltYXJ5VGV4dCk7XG59XG5cbi5uYXYtaXRlbS5pbnZlcnRlZDpob3ZlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmN2Y3Zjc7XG59XG5cbi5uYXYtaXRlbS5pbnZlcnRlZCBhIHtcbiAgY29sb3I6IHZhcigtLU5ldFNpbVByaW1hcnkpICFpbXBvcnRhbnQ7XG59XG5cbi5kcm9wZG93bi1tZW51LXJpZ2h0IC5tZGk6YmVmb3JlIHtcbiAgZm9udC1zaXplOiAxLjJyZW07XG4gIHRvcDogMDtcbiAgb3BhY2l0eTogMC44O1xufVxuXG4ubmF2LWhpZGRlbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5uYXYtaGlkZGVuLWNvbnRlbnQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG4gIGhlaWdodDogMTAwdmg7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.container-fluid[_ngcontent-ng-c4116344618] {
+  background-color: var(--BackgroundSecondary);
+}
+
+#main-row[_ngcontent-ng-c4116344618], #main-row[_ngcontent-ng-c4116344618]    > div[_ngcontent-ng-c4116344618] {
+  height: 100%;
+}
+
+#main-row[_ngcontent-ng-c4116344618] {
+  display: flex;
+  flex-direction: row;
+}
+
+#main-row[_ngcontent-ng-c4116344618]    > div[_ngcontent-ng-c4116344618] {
+  padding: 5px;
+}
+
+.left-col[_ngcontent-ng-c4116344618], .right-col[_ngcontent-ng-c4116344618] {
+  width: 20%;
+}
+
+#center-col[_ngcontent-ng-c4116344618] {
+  width: 80%;
+  position: relative;
+}
+
+.card[_ngcontent-ng-c4116344618], .card-body[_ngcontent-ng-c4116344618] {
+  height: 100%;
+}
+
+#connections-card[_ngcontent-ng-c4116344618], #devices-card[_ngcontent-ng-c4116344618] {
+  height: calc((100vh - 66px) / 2 - 9px);
+}
+
+#connections-card[_ngcontent-ng-c4116344618] {
+  margin-bottom: 8px !important;
+}
+
+#lab-documents[_ngcontent-ng-c4116344618] {
+  height: 320px;
+  overflow: auto;
+}
+
+
+
+.card[_ngcontent-ng-c4116344618]   .card-header[_ngcontent-ng-c4116344618] {
+  background-color: var(--NetSimPrimary) !important;
+  color: var(--NetSimPrimaryText);
+  padding: 0.25rem 0.35rem;
+  border-radius: 4px 4px 0 0;
+}
+
+.card[_ngcontent-ng-c4116344618] {
+  width: 100%;
+  border: none;
+  box-shadow: var(--DefaultShadow);
+}
+
+.card-body[_ngcontent-ng-c4116344618] {
+  overflow: auto;
+  white-space: nowrap;
+  height: 100%;
+  padding: 8px;
+}
+
+.card-body.lab-tree[_ngcontent-ng-c4116344618] {
+  overflow-y: scroll;
+}
+
+#no-progress[_ngcontent-ng-c4116344618] {
+  padding: 8px;
+  width: 1170px;
+  border: none;
+  margin: 175px auto 0;
+  background-color: var(--BackgroundPrimary);
+  box-shadow: var(--DefaultShadow);
+  border-radius: 4px;
+}
+
+h2[_ngcontent-ng-c4116344618] {
+  color: var(--NetSimPrimary);
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  margin-top: 10px;
+}
+
+.center-progress[_ngcontent-ng-c4116344618] {
+  margin: 0 auto;
+  width: 550px;
+  background-color: var(--BackgroundPrimary);
+  border-radius: 4px;
+  padding: 14px;
+  box-shadow: var(--DefaultShadow);
+  margin-top: 175px;
+}
+
+#search[_ngcontent-ng-c4116344618] {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 300px;
+}
+
+#tabbing-fade[_ngcontent-ng-c4116344618] {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#tabbing[_ngcontent-ng-c4116344618] {
+  position: absolute;
+  width: 300px;
+  top: 100px;
+  left: calc((100% - 300px) / 2);
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvbGFiL3BhZ2VzL21haW4vbWFpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDRDQUFBO0FBQ0Y7O0FBRUE7O0VBRUUsWUFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0FBQ0Y7O0FBRUE7O0VBRUUsVUFBQTtBQUNGOztBQUVBO0VBQ0UsVUFBQTtFQUNBLGtCQUFBO0FBQ0Y7O0FBRUE7O0VBRUUsWUFBQTtBQUNGOztBQUVBOztFQUVFLHNDQUFBO0FBQ0Y7O0FBRUE7RUFDRSw2QkFBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtFQUNBLGNBQUE7QUFDRjs7QUFFQSxVQUFBO0FBQ0E7RUFDRSxpREFBQTtFQUNBLCtCQUFBO0VBQ0Esd0JBQUE7RUFDQSwwQkFBQTtBQUNGOztBQUVBO0VBQ0UsV0FBQTtFQUNBLFlBQUE7RUFDQSxnQ0FBQTtBQUNGOztBQUVBO0VBQ0UsY0FBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7QUFDRjs7QUFFQTtFQUNFLGtCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0VBQ0EsYUFBQTtFQUNBLFlBQUE7RUFDQSxvQkFBQTtFQUNBLDBDQUFBO0VBQ0EsZ0NBQUE7RUFDQSxrQkFBQTtBQUNGOztBQUVBO0VBQ0UsMkJBQUE7RUFDQSxpQkFBQTtFQUNBLG1CQUFBO0VBQ0EsZ0JBQUE7QUFDRjs7QUFDQTtFQUNFLGNBQUE7RUFDQSxZQUFBO0VBQ0EsMENBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxnQ0FBQTtFQUNBLGlCQUFBO0FBRUY7O0FBQ0E7RUFDRSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxRQUFBO0VBQ0EsWUFBQTtBQUVGOztBQUNBO0VBQ0UsMENBQUE7RUFDQSxrQkFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0FBRUY7O0FBQUE7RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxVQUFBO0VBQ0EsOEJBQUE7QUFHRiIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXItZmx1aWQge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kU2Vjb25kYXJ5KTtcbn1cblxuI21haW4tcm93LFxuI21haW4tcm93ID4gZGl2IHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4jbWFpbi1yb3cge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xufVxuXG4jbWFpbi1yb3cgPiBkaXYge1xuICBwYWRkaW5nOiA1cHg7XG59XG5cbi5sZWZ0LWNvbCxcbi5yaWdodC1jb2wge1xuICB3aWR0aDogMjAlO1xufVxuXG4jY2VudGVyLWNvbCB7XG4gIHdpZHRoOiA4MCU7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLmNhcmQsXG4uY2FyZC1ib2R5IHtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG4jY29ubmVjdGlvbnMtY2FyZCxcbiNkZXZpY2VzLWNhcmQge1xuICBoZWlnaHQ6IGNhbGMoKCgxMDB2aCAtIDY2cHgpIC8gMikgLSA5cHgpO1xufVxuXG4jY29ubmVjdGlvbnMtY2FyZCB7XG4gIG1hcmdpbi1ib3R0b206IDhweCAhaW1wb3J0YW50O1xufVxuXG4jbGFiLWRvY3VtZW50cyB7XG4gIGhlaWdodDogMzIwcHg7XG4gIG92ZXJmbG93OiBhdXRvO1xufVxuXG4vKiBDYXJkcyAqL1xuLmNhcmQgLmNhcmQtaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tTmV0U2ltUHJpbWFyeSkgIWltcG9ydGFudDtcbiAgY29sb3I6IHZhcigtLU5ldFNpbVByaW1hcnlUZXh0KTtcbiAgcGFkZGluZzogMC4yNXJlbSAwLjM1cmVtO1xuICBib3JkZXItcmFkaXVzOiA0cHggNHB4IDAgMDtcbn1cblxuLmNhcmQge1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBub25lO1xuICBib3gtc2hhZG93OiB2YXIoLS1EZWZhdWx0U2hhZG93KTtcbn1cblxuLmNhcmQtYm9keSB7XG4gIG92ZXJmbG93OiBhdXRvO1xuICB3aGl0ZS1zcGFjZTogbm93cmFwO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHBhZGRpbmc6IDhweDtcbn1cblxuLmNhcmQtYm9keS5sYWItdHJlZSB7XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbn1cblxuI25vLXByb2dyZXNzIHtcbiAgcGFkZGluZzogOHB4O1xuICB3aWR0aDogMTE3MHB4O1xuICBib3JkZXI6IG5vbmU7XG4gIG1hcmdpbjogMTc1cHggYXV0byAwO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG4gIGJveC1zaGFkb3c6IHZhcigtLURlZmF1bHRTaGFkb3cpO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG59XG5cbmgyIHtcbiAgY29sb3I6IHZhcigtLU5ldFNpbVByaW1hcnkpO1xuICBmb250LXNpemU6IDEuNXJlbTtcbiAgbWFyZ2luLWJvdHRvbTogMTZweDtcbiAgbWFyZ2luLXRvcDogMTBweDtcbn1cbi5jZW50ZXItcHJvZ3Jlc3Mge1xuICBtYXJnaW46IDAgYXV0bztcbiAgd2lkdGg6IDU1MHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgcGFkZGluZzogMTRweDtcbiAgYm94LXNoYWRvdzogdmFyKC0tRGVmYXVsdFNoYWRvdyk7XG4gIG1hcmdpbi10b3A6IDE3NXB4O1xufVxuXG4jc2VhcmNoIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogNXB4O1xuICB0b3A6IDVweDtcbiAgd2lkdGg6IDMwMHB4O1xufVxuXG4jdGFiYmluZy1mYWRlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjUpO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG59XG4jdGFiYmluZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDMwMHB4O1xuICB0b3A6IDEwMHB4O1xuICBsZWZ0OiBjYWxjKCgxMDAlIC0gMzAwcHgpIC8gMik7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>
+
+      .nav-tabs[_ngcontent-ng-c54790827] {
+        border-bottom: none;
+      }
+      .nav-tabs[_ngcontent-ng-c54790827]    > .nav-item[_ngcontent-ng-c54790827] {
+        padding: 0;
+      }
+      .nav-tabs[_ngcontent-ng-c54790827]    > .nav-item[_ngcontent-ng-c54790827]    > .nav-link[_ngcontent-ng-c54790827] {
+        padding: 0.5rem;
+        background-color: var(--BackgroundTertiary);
+        border-radius: 4px 4px 0 0;
+        box-shadow: var(--DefaultShadow);
+        border: 0;
+        color: var(--PanePrimaryText);
+        
+
+        margin: 2px 0 0 0;
+      }
+      .nav-tabs[_ngcontent-ng-c54790827]    > .nav-item[_ngcontent-ng-c54790827]:first-child {
+        margin-left: 2px;
+      }
+      .nav-tabs[_ngcontent-ng-c54790827]    > .nav-item[_ngcontent-ng-c54790827]    > .nav-link[_ngcontent-ng-c54790827]:hover {
+        background-color: var(--BackgroundHover);
+        cursor: pointer;
+      }
+      .nav-tabs[_ngcontent-ng-c54790827]    > .nav-item.active[_ngcontent-ng-c54790827]    > .nav-link[_ngcontent-ng-c54790827], .nav-tabs[_ngcontent-ng-c54790827]    > .nav-item.active[_ngcontent-ng-c54790827]    > .nav-link[_ngcontent-ng-c54790827]:hover {
+        background-color: var(--BackgroundPrimary);
+      }
+      .nav-item[_ngcontent-ng-c54790827]:hover {
+        background-color: transparent;
+      }
+
+      .tab-close[_ngcontent-ng-c54790827] {
+        color: gray;
+        text-align: right;
+        cursor: pointer;
+        padding-left: 5px;
+      }
+      #myTabContent[_ngcontent-ng-c54790827] {
+        height: var(--TabContentHeight);
+        max-height: var(--TabContentHeight);
+        overflow: hidden;
+      }
+      .tab-content[_ngcontent-ng-c54790827] {
+        color: var(--PanePrimaryText);
+        background-color: var(--BackgroundPrimary);
+        box-shadow: var(--DefaultShadow);
+        border-radius: 4px;
+        padding: 4px;
+      }
+      .nav-tabs[_ngcontent-ng-c54790827] {
+        overflow: hidden;
+      }
+    
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdGFicy5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtNQUNNLGtCQUFrQjtNQUNsQjtRQUNFLG1CQUFtQjtNQUNyQjtNQUNBO1FBQ0UsVUFBVTtNQUNaO01BQ0E7UUFDRSxlQUFlO1FBQ2YsMkNBQTJDO1FBQzNDLDBCQUEwQjtRQUMxQixnQ0FBZ0M7UUFDaEMsU0FBUztRQUNULDZCQUE2QjtRQUM3QiwyQkFBMkI7UUFDM0IsaUJBQWlCO01BQ25CO01BQ0E7UUFDRSxnQkFBZ0I7TUFDbEI7TUFDQTtRQUNFLHdDQUF3QztRQUN4QyxlQUFlO01BQ2pCO01BQ0E7O1FBRUUsMENBQTBDO01BQzVDO01BQ0E7UUFDRSw2QkFBNkI7TUFDL0I7O01BRUE7UUFDRSxXQUFXO1FBQ1gsaUJBQWlCO1FBQ2pCLGVBQWU7UUFDZixpQkFBaUI7TUFDbkI7TUFDQTtRQUNFLCtCQUErQjtRQUMvQixtQ0FBbUM7UUFDbkMsZ0JBQWdCO01BQ2xCO01BQ0E7UUFDRSw2QkFBNkI7UUFDN0IsMENBQTBDO1FBQzFDLGdDQUFnQztRQUNoQyxrQkFBa0I7UUFDbEIsWUFBWTtNQUNkO01BQ0E7UUFDRSxnQkFBZ0I7TUFDbEIiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgICAgIC8qIE5hdiBUYWIgSXRlbXMgKi9cbiAgICAgIC5uYXYtdGFicyB7XG4gICAgICAgIGJvcmRlci1ib3R0b206IG5vbmU7XG4gICAgICB9XG4gICAgICAubmF2LXRhYnMgPiAubmF2LWl0ZW0ge1xuICAgICAgICBwYWRkaW5nOiAwO1xuICAgICAgfVxuICAgICAgLm5hdi10YWJzID4gLm5hdi1pdGVtID4gLm5hdi1saW5rIHtcbiAgICAgICAgcGFkZGluZzogMC41cmVtO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kVGVydGlhcnkpO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHggNHB4IDAgMDtcbiAgICAgICAgYm94LXNoYWRvdzogdmFyKC0tRGVmYXVsdFNoYWRvdyk7XG4gICAgICAgIGJvcmRlcjogMDtcbiAgICAgICAgY29sb3I6IHZhcigtLVBhbmVQcmltYXJ5VGV4dCk7XG4gICAgICAgIC8qIG1hcmdpbjogMnB4IDFweCAwIDNweDsgKi9cbiAgICAgICAgbWFyZ2luOiAycHggMCAwIDA7XG4gICAgICB9XG4gICAgICAubmF2LXRhYnMgPiAubmF2LWl0ZW06Zmlyc3QtY2hpbGQge1xuICAgICAgICBtYXJnaW4tbGVmdDogMnB4O1xuICAgICAgfVxuICAgICAgLm5hdi10YWJzID4gLm5hdi1pdGVtID4gLm5hdi1saW5rOmhvdmVyIHtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tQmFja2dyb3VuZEhvdmVyKTtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgfVxuICAgICAgLm5hdi10YWJzID4gLm5hdi1pdGVtLmFjdGl2ZSA+IC5uYXYtbGluayxcbiAgICAgIC5uYXYtdGFicyA+IC5uYXYtaXRlbS5hY3RpdmUgPiAubmF2LWxpbms6aG92ZXIge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG4gICAgICB9XG4gICAgICAubmF2LWl0ZW06aG92ZXIge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICAgIH1cblxuICAgICAgLnRhYi1jbG9zZSB7XG4gICAgICAgIGNvbG9yOiBncmF5O1xuICAgICAgICB0ZXh0LWFsaWduOiByaWdodDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBwYWRkaW5nLWxlZnQ6IDVweDtcbiAgICAgIH1cbiAgICAgICNteVRhYkNvbnRlbnQge1xuICAgICAgICBoZWlnaHQ6IHZhcigtLVRhYkNvbnRlbnRIZWlnaHQpO1xuICAgICAgICBtYXgtaGVpZ2h0OiB2YXIoLS1UYWJDb250ZW50SGVpZ2h0KTtcbiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICAgIH1cbiAgICAgIC50YWItY29udGVudCB7XG4gICAgICAgIGNvbG9yOiB2YXIoLS1QYW5lUHJpbWFyeVRleHQpO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG4gICAgICAgIGJveC1zaGFkb3c6IHZhcigtLURlZmF1bHRTaGFkb3cpO1xuICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgIHBhZGRpbmc6IDRweDtcbiAgICAgIH1cbiAgICAgIC5uYXYtdGFicyB7XG4gICAgICAgIG92ZXJmbG93OiBoaWRkZW47XG4gICAgICB9XG4gICAgIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>table[_ngcontent-ng-c2285376402] {
+  width: 100%;
+}
+
+tr[_ngcontent-ng-c2285376402] {
+  border: 1px solid var(--DefaultBorderColor);
+}
+
+tr[_ngcontent-ng-c2285376402]:hover {
+  border: 1px solid var(--BackgroundHover);
+  background-color: var(--BackgroundHover);
+}
+
+td[_ngcontent-ng-c2285376402] {
+  padding: 10px;
+}
+
+label[_ngcontent-ng-c2285376402] {
+  font-size: 14px;
+  padding-right: 0;
+}
+
+select[_ngcontent-ng-c2285376402] {
+  font-size: 0.8rem;
+}
+
+
+
+.icon[_ngcontent-ng-c2285376402] {
+  width: 60px;
+  height: 35px;
+}
+
+#connections-height[_ngcontent-ng-c2285376402] {
+  overflow: auto;
+  position: absolute;
+  top: 75px;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvbGFiL2NvbXBvbmVudHMvY29ubmVjdGlvbnMvY29ubmVjdGlvbnMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFBO0FBQ0Y7O0FBRUE7RUFDRSwyQ0FBQTtBQUNGOztBQUVBO0VBQ0Usd0NBQUE7RUFDQSx3Q0FBQTtBQUNGOztBQUVBO0VBQ0UsYUFBQTtBQUNGOztBQUVBO0VBQ0UsZUFBQTtFQUNBLGdCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxpQkFBQTtBQUNGOztBQUVBLHdCQUFBO0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtBQUNGOztBQUVBO0VBQ0UsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsidGFibGUge1xuICB3aWR0aDogMTAwJTtcbn1cblxudHIge1xuICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1EZWZhdWx0Qm9yZGVyQ29sb3IpO1xufVxuXG50cjpob3ZlciB7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLUJhY2tncm91bmRIb3Zlcik7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLUJhY2tncm91bmRIb3Zlcik7XG59XG5cbnRkIHtcbiAgcGFkZGluZzogMTBweDtcbn1cblxubGFiZWwge1xuICBmb250LXNpemU6IDE0cHg7XG4gIHBhZGRpbmctcmlnaHQ6IDA7XG59XG5cbnNlbGVjdCB7XG4gIGZvbnQtc2l6ZTogMC44cmVtO1xufVxuXG4vKiBPdmVycmlkZSBpY29uIHdpZHRoICovXG4uaWNvbiB7XG4gIHdpZHRoOiA2MHB4O1xuICBoZWlnaHQ6IDM1cHg7XG59XG5cbiNjb25uZWN0aW9ucy1oZWlnaHQge1xuICBvdmVyZmxvdzogYXV0bztcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0b3A6IDc1cHg7XG4gIGJvdHRvbTogMDtcbiAgbWFyZ2luOiAwO1xuICBwYWRkaW5nOiAwO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>table[_ngcontent-ng-c2272267441] {
+  width: 100%;
+}
+
+tr[_ngcontent-ng-c2272267441] {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+td[_ngcontent-ng-c2272267441] {
+  padding: 10px;
+}
+
+td.device-actions[_ngcontent-ng-c2272267441] {
+  text-align: right;
+}
+
+td.device-name[_ngcontent-ng-c2272267441] {
+  text-align: center;
+}
+
+#devices-height[_ngcontent-ng-c2272267441] {
+  overflow: auto;
+  position: absolute;
+  top: 33px;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.consoleLink[_ngcontent-ng-c2272267441] {
+  color: var(--NetSimPrimary);
+}
+
+.consoleLink[_ngcontent-ng-c2272267441]:hover {
+  cursor: pointer;
+}
+
+img.device-icon[_ngcontent-ng-c2272267441] {
+  width: 30px;
+  height: 24px;
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvbGFiL2NvbXBvbmVudHMvZGV2aWNlcy9kZXZpY2VzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBQTtBQUNGOztBQUVBO0VBQ0Usc0NBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRjs7QUFFQTtFQUNFLGlCQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxrQkFBQTtBQUVGOztBQUNBO0VBQ0UsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFNBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtBQUVGOztBQUNBO0VBQ0UsMkJBQUE7QUFFRjs7QUFDQTtFQUNFLGVBQUE7QUFFRjs7QUFDQTtFQUNFLFdBQUE7RUFDQSxZQUFBO0FBRUYiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG50ciB7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHJnYmEoMCwgMCwgMCwgMC4xMjUpO1xufVxuXG50ZCB7XG4gIHBhZGRpbmc6IDEwcHg7XG59XG5cbnRkLmRldmljZS1hY3Rpb25zIHtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XG59XG50ZC5kZXZpY2UtbmFtZSB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuI2RldmljZXMtaGVpZ2h0IHtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAzM3B4O1xuICBib3R0b206IDA7XG4gIG1hcmdpbjogMDtcbiAgcGFkZGluZzogMDtcbn1cblxuLmNvbnNvbGVMaW5rIHtcbiAgY29sb3I6IHZhcigtLU5ldFNpbVByaW1hcnkpO1xufVxuXG4uY29uc29sZUxpbms6aG92ZXIge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbmltZy5kZXZpY2UtaWNvbiB7XG4gIHdpZHRoOiAzMHB4O1xuICBoZWlnaHQ6IDI0cHg7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.pane[_ngcontent-ng-c14773305] {
+        padding: 1em;
+      }
+    
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdGFiLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO01BQ007UUFDRSxZQUFZO01BQ2QiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgICAgIC5wYW5lIHtcbiAgICAgICAgcGFkZGluZzogMWVtO1xuICAgICAgfVxuICAgICJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.netmap[_ngcontent-ng-c615085052] {
+  height: calc(100vh - 126px);
+  background-color: var(--BackgroundPrimary);
+  fill: var(--BackgroundPrimary);
+  overflow: hidden;
+}
+
+.node-text[_ngcontent-ng-c615085052] {
+  font-size: small;
+}
+
+.node-icon[_ngcontent-ng-c615085052]:hover {
+  filter: url(#nodeShadowFilter);
+}
+
+.graph[_ngcontent-ng-c615085052]   .links[_ngcontent-ng-c615085052]   .edge[_ngcontent-ng-c615085052] {
+  stroke: var(--NetMapStroke);
+}
+
+.standalone[_ngcontent-ng-c615085052] {
+  height: calc(100vh - 48px);
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvbmV0bWFwL2NvbXBvbmVudHMvbmV0bWFwL25ldG1hcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDJCQUFBO0VBQ0EsMENBQUE7RUFDQSw4QkFBQTtFQUNBLGdCQUFBO0FBQ0Y7O0FBRUE7RUFDRSxnQkFBQTtBQUNGOztBQUVBO0VBQ0UsOEJBQUE7QUFDRjs7QUFFQTtFQUNFLDJCQUFBO0FBQ0Y7O0FBQ0E7RUFDRSwwQkFBQTtBQUVGIiwic291cmNlc0NvbnRlbnQiOlsiLm5ldG1hcCB7XG4gIGhlaWdodDogY2FsYygxMDB2aCAtIDEyNnB4KTtcbiAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0tQmFja2dyb3VuZFByaW1hcnkpO1xuICBmaWxsOiB2YXIoLS1CYWNrZ3JvdW5kUHJpbWFyeSk7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG5cbi5ub2RlLXRleHQge1xuICBmb250LXNpemU6IHNtYWxsO1xufVxuXG4ubm9kZS1pY29uOmhvdmVyIHtcbiAgZmlsdGVyOiB1cmwoI25vZGVTaGFkb3dGaWx0ZXIpO1xufVxuXG4uZ3JhcGggLmxpbmtzIC5lZGdlIHtcbiAgc3Ryb2tlOiB2YXIoLS1OZXRNYXBTdHJva2UpO1xufVxuLnN0YW5kYWxvbmUge1xuICBoZWlnaHQ6IGNhbGMoMTAwdmggLSA0OHB4KTtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>.console {
+  background-color: black;
+  color: limegreen;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  width: 100%;
+  height: calc(100vh - 126px);
+  outline: none;
+  white-space: pre;
+  overflow: auto;
+  padding: 3px;
+  line-height: 1.1;
+  display: block !important;
+  caret-color: transparent;
+}
+
+.standalone-console {
+  height: 100vh;
+}
+
+.cursor {
+  animation: blink 1s 0.5s infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvY29uc29sZS9jb21wb25lbnRzL2NvbnNvbGUvY29uc29sZS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHVCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxxQ0FBQTtFQUNBLGVBQUE7RUFDQSxXQUFBO0VBQ0EsMkJBQUE7RUFDQSxhQUFBO0VBQ0EsZ0JBQUE7RUFDQSxjQUFBO0VBQ0EsWUFBQTtFQUNBLGdCQUFBO0VBQ0EseUJBQUE7RUFDQSx3QkFBQTtBQUNGOztBQUNBO0VBQ0UsYUFBQTtBQUVGOztBQUNBO0VBSUUsaUNBQUE7QUFFRjtBQW9EQTtFQUNFO0lBQ0UsVUFBQTtFQUVGO0VBQUE7SUFDRSxVQUFBO0VBRUY7RUFBQTtJQUNFLFVBQUE7RUFFRjtFQUFBO0lBQ0UsVUFBQTtFQUVGO0VBQUE7SUFDRSxVQUFBO0VBRUY7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi5jb25zb2xlIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XG4gIGNvbG9yOiBsaW1lZ3JlZW47XG4gIGZvbnQtZmFtaWx5OiBcIkNvdXJpZXIgTmV3XCIsIG1vbm9zcGFjZTtcbiAgZm9udC1zaXplOiAxNHB4O1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoIC0gMTI2cHgpO1xuICBvdXRsaW5lOiBub25lO1xuICB3aGl0ZS1zcGFjZTogcHJlO1xuICBvdmVyZmxvdzogYXV0bztcbiAgcGFkZGluZzogM3B4O1xuICBsaW5lLWhlaWdodDogMS4xO1xuICBkaXNwbGF5OiBibG9jayAhaW1wb3J0YW50O1xuICBjYXJldC1jb2xvcjogdHJhbnNwYXJlbnQ7XG59XG4uc3RhbmRhbG9uZS1jb25zb2xlIHtcbiAgaGVpZ2h0OiBjYWxjKDEwMHZoKTtcbn1cblxuLmN1cnNvciB7XG4gIC13ZWJraXQtYW5pbWF0aW9uOiBibGluayAxcyAwLjVzIGluZmluaXRlO1xuICAtbW96LWFuaW1hdGlvbjogYmxpbmsgMXMgMC41cyBpbmZpbml0ZTtcbiAgLW8tYW5pbWF0aW9uOiBibGluayAxcyAwLjVzIGluZmluaXRlO1xuICBhbmltYXRpb246IGJsaW5rIDFzIDAuNXMgaW5maW5pdGU7XG59XG5cbkAtd2Via2l0LWtleWZyYW1lcyBibGluayB7XG4gIDAlIHtcbiAgICBvcGFjaXR5OiAwO1xuICB9XG4gIDQwJSB7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuICA1MCUge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cbiAgOTAlIHtcbiAgICBvcGFjaXR5OiAxO1xuICB9XG4gIDEwMCUge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbn1cbkAtbW96LWtleWZyYW1lcyBibGluayB7XG4gIDAlIHtcbiAgICBvcGFjaXR5OiAwO1xuICB9XG4gIDQwJSB7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuICA1MCUge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cbiAgOTAlIHtcbiAgICBvcGFjaXR5OiAxO1xuICB9XG4gIDEwMCUge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbn1cbkAtby1rZXlmcmFtZXMgYmxpbmsge1xuICAwJSB7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxuICA0MCUge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbiAgNTAlIHtcbiAgICBvcGFjaXR5OiAxO1xuICB9XG4gIDkwJSB7XG4gICAgb3BhY2l0eTogMTtcbiAgfVxuICAxMDAlIHtcbiAgICBvcGFjaXR5OiAwO1xuICB9XG59XG5Aa2V5ZnJhbWVzIGJsaW5rIHtcbiAgMCUge1xuICAgIG9wYWNpdHk6IDA7XG4gIH1cbiAgNDAlIHtcbiAgICBvcGFjaXR5OiAwO1xuICB9XG4gIDUwJSB7XG4gICAgb3BhY2l0eTogMTtcbiAgfVxuICA5MCUge1xuICAgIG9wYWNpdHk6IDE7XG4gIH1cbiAgMTAwJSB7XG4gICAgb3BhY2l0eTogMDtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.node-text[_ngcontent-ng-c3520290483] {
+  font-size: small;
+  fill: black;
+}
+
+.node-icon[_ngcontent-ng-c3520290483]:hover {
+  filter: url(#nodeShadowFilter);
+}
+
+.node-icon.selected[_ngcontent-ng-c3520290483], .edge[_ngcontent-ng-c3520290483]:hover {
+  filter: url(#nodeDragFilter);
+}
+
+.node-icon.snap[_ngcontent-ng-c3520290483] {
+  filter: url(#nodeSnapFilter);
+}
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvZmVhdHVyZXMvbmV0d29yay1kZXNpZ25lci9jb21wb25lbnRzL25vZGVzL2RldmljZS1ub2RlL2RldmljZS1ub2RlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQUE7RUFDQSxXQUFBO0FBQ0Y7O0FBRUE7RUFDRSw4QkFBQTtBQUNGOztBQUVBOztFQUVFLDRCQUFBO0FBQ0Y7O0FBRUE7RUFDRSw0QkFBQTtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsiLm5vZGUtdGV4dCB7XG4gIGZvbnQtc2l6ZTogc21hbGw7XG4gIGZpbGw6IGJsYWNrO1xufVxuXG4ubm9kZS1pY29uOmhvdmVyIHtcbiAgZmlsdGVyOiB1cmwoI25vZGVTaGFkb3dGaWx0ZXIpO1xufVxuXG4ubm9kZS1pY29uLnNlbGVjdGVkLFxuLmVkZ2U6aG92ZXIge1xuICBmaWx0ZXI6IHVybCgjbm9kZURyYWdGaWx0ZXIpO1xufVxuXG4ubm9kZS1pY29uLnNuYXAge1xuICBmaWx0ZXI6IHVybCgjbm9kZVNuYXBGaWx0ZXIpO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style></head>
+  <body spellcheck="false" class="" style="">
+    <app-root _nghost-ng-c3248407304="" ng-version="17.3.11"><div _ngcontent-ng-c3248407304="" class="root-container"><div _ngcontent-ng-c3248407304="" class="menu-container"><app-main-menu _ngcontent-ng-c3248407304="" _nghost-ng-c1340234396=""><nav _ngcontent-ng-c1340234396="" class="navbar navbar-expand-lg navbar-light"><a _ngcontent-ng-c1340234396="" id="homeButton" routerlink="." routerlinkactive="active" class="navbar-brand active" href="https://netsim.boson.com/"><img _ngcontent-ng-c1340234396="" src="./DC-RTR_files/netsim-spin-white.png" alt="Boson™ logo." class="home-icon"></a><button _ngcontent-ng-c1340234396="" type="button" class="navbar-toggler">☰</button><div _ngcontent-ng-c1340234396="" class="navbar-collapse collapse show" style=""><ul _ngcontent-ng-c1340234396="" class="navbar-nav mr-auto"><li _ngcontent-ng-c1340234396="" routerlinkactive="active" class="nav-item dropdown"><span _ngcontent-ng-c1340234396="" routerlinkactive="active" id="fileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><span _ngcontent-ng-c1340234396="" class="mdi mdi-content-save"></span> File </span><div _ngcontent-ng-c1340234396="" aria-labelledby="fileDropdown" class="dropdown-menu"><a _ngcontent-ng-c1340234396="" routerlink="/open" class="dropdown-item" href="https://netsim.boson.com/open">Open...</a><!----><a _ngcontent-ng-c1340234396="" routerlink="/save" class="dropdown-item" href="https://netsim.boson.com/save">Save As...</a></div></li><!----><li _ngcontent-ng-c1340234396="" routerlinkactive="active" class="nav-item"><a _ngcontent-ng-c1340234396="" routerlink="/labs" class="nav-link" href="https://netsim.boson.com/labs"><span _ngcontent-ng-c1340234396="" class="mdi mdi-flask"></span> Labs </a></li><li _ngcontent-ng-c1340234396="" routerlinkactive="active" class="nav-item"><a _ngcontent-ng-c1340234396="" routerlink="/designer" class="nav-link" href="https://netsim.boson.com/designer"><span _ngcontent-ng-c1340234396="" class="mdi mdi-lan"></span> Designer </a></li><!----><li _ngcontent-ng-c1340234396="" class="nav-item dropdown multi-level-dropdown ng-star-inserted"><span _ngcontent-ng-c1340234396="" routerlinkactive="active" id="viewDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><span _ngcontent-ng-c1340234396="" class="mdi mdi-open-in-new"></span> View </span><ul _ngcontent-ng-c1340234396="" aria-labelledby="viewDropdown" class="dropdown-menu"><li _ngcontent-ng-c1340234396=""><!----></li><li _ngcontent-ng-c1340234396=""><!----></li><li _ngcontent-ng-c1340234396=""><span _ngcontent-ng-c1340234396="" class="dropdown-item ng-star-inserted">Topology</span><!----></li><li _ngcontent-ng-c1340234396="" class="dropdown-submenu"><span _ngcontent-ng-c1340234396="" class="dropdown-item dropdown-toggle ng-star-inserted">Devices<span _ngcontent-ng-c1340234396="" class="mdi mdi-menu-right"></span></span><!----><ul _ngcontent-ng-c1340234396="" class="dropdown-menu ng-star-inserted"><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console EDGE-RTR</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console HQ-CORE-RT</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console DC-RTR</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console BRANCH1-RT</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console BRANCH2-RT</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console ISP-A</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console ISP-B</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console MLS-CORE</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console MLS2</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console Access-SW</span></li><li _ngcontent-ng-c1340234396="" class="ng-star-inserted"><span _ngcontent-ng-c1340234396="" class="dropdown-item">Console DC-SW</span></li><!----></ul><!----></li><li _ngcontent-ng-c1340234396="" class="dropdown-submenu"><!----><!----></li></ul></li><!----><!----><!----><li _ngcontent-ng-c1340234396="" class="nav-item dropdown ng-star-inserted"><span _ngcontent-ng-c1340234396="" role="button" class="nav-link dropdown-toggle"><span _ngcontent-ng-c1340234396="" class="mdi mdi-stop-circle-outline"></span> End </span></li><!----><li _ngcontent-ng-c1340234396="" class="nav-item dropdown"><span _ngcontent-ng-c1340234396="" routerlinkactive="active" id="helpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><span _ngcontent-ng-c1340234396="" class="mdi mdi-help-circle"></span> Help </span><div _ngcontent-ng-c1340234396="" aria-labelledby="helpDropdown" class="dropdown-menu"><a _ngcontent-ng-c1340234396="" href="https://help.boson.com/netsim" target="_blank" rel="noopener" class="dropdown-item">User Guide</a><a _ngcontent-ng-c1340234396="" target="_blank" rel="noopener" class="dropdown-item" href="https://www.boson.com/Account/SupportTickets">Create Support Ticket</a><span _ngcontent-ng-c1340234396="" class="dropdown-item">Quick Start Guide</span><span _ngcontent-ng-c1340234396="" class="dropdown-item">Keyboard Shortcuts</span></div></li></ul><!----><ul _ngcontent-ng-c1340234396="" class="navbar-nav"><!----><li _ngcontent-ng-c1340234396="" class="nav-item dropdown"><span _ngcontent-ng-c1340234396="" routerlinkactive="active" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Expand user account dropdown." class="nav-link"><span _ngcontent-ng-c1340234396="" id="user-icon" class="mdi mdi-account"></span></span><div _ngcontent-ng-c1340234396="" aria-labelledby="accountDropdown" class="dropdown-menu dropdown-menu-right"><a _ngcontent-ng-c1340234396="" routerlink="/preferences" class="dropdown-item" href="https://netsim.boson.com/preferences"><span _ngcontent-ng-c1340234396="" class="mdi mdi-cog"></span> Preferences</a><a _ngcontent-ng-c1340234396="" routerlink="/activate" class="dropdown-item" href="https://netsim.boson.com/activate"><span _ngcontent-ng-c1340234396="" class="mdi mdi-plus-box-multiple"></span> Activate Keys</a><a _ngcontent-ng-c1340234396="" class="dropdown-item"><span _ngcontent-ng-c1340234396="" class="mdi mdi-information"></span> About NetSim</a><div _ngcontent-ng-c1340234396="" class="dropdown-divider"></div><span _ngcontent-ng-c1340234396="" class="dropdown-item"><span _ngcontent-ng-c1340234396="" class="mdi mdi-logout"></span> Logout</span></div></li><!----><!----></ul></div></nav></app-main-menu></div><!----><!----><div _ngcontent-ng-c3248407304="" class="router-outlet-container"><router-outlet _ngcontent-ng-c3248407304=""></router-outlet><app-main _nghost-ng-c4116344618="" class="ng-star-inserted"><div _ngcontent-ng-c4116344618="" class="container-fluid pt-3 h-100"><div _ngcontent-ng-c4116344618="" id="main-row" class="inline"><div _ngcontent-ng-c4116344618="" id="center-col"><!----><!----><my-tabs _ngcontent-ng-c4116344618="" _nghost-ng-c54790827=""><ul _ngcontent-ng-c54790827="" class="nav nav-tabs"><!----><li _ngcontent-ng-c54790827="" class="nav-item ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">Topology</span><!----></span></li><li _ngcontent-ng-c54790827="" class="nav-item ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">EDGE-RTR</span><span _ngcontent-ng-c54790827="" class="tab-close ng-star-inserted">x</span><!----></span></li><li _ngcontent-ng-c54790827="" class="nav-item ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">Access-SW</span><span _ngcontent-ng-c54790827="" class="tab-close ng-star-inserted">x</span><!----></span></li><li _ngcontent-ng-c54790827="" class="nav-item ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">DC-SW</span><span _ngcontent-ng-c54790827="" class="tab-close ng-star-inserted">x</span><!----></span></li><li _ngcontent-ng-c54790827="" class="nav-item ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">MLS-CORE</span><span _ngcontent-ng-c54790827="" class="tab-close ng-star-inserted">x</span><!----></span></li><li _ngcontent-ng-c54790827="" class="nav-item ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">MLS2</span><span _ngcontent-ng-c54790827="" class="tab-close ng-star-inserted">x</span><!----></span></li><li _ngcontent-ng-c54790827="" class="nav-item active ng-star-inserted"><span _ngcontent-ng-c54790827="" class="nav-link"><span _ngcontent-ng-c54790827="">DC-RTR</span><span _ngcontent-ng-c54790827="" class="tab-close ng-star-inserted">x</span><!----></span></li><!----></ul><div _ngcontent-ng-c54790827="" id="myTabContent" class="tab-content"><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane" hidden=""><app-netmap _nghost-ng-c615085052="" class="ng-star-inserted"><div _ngcontent-ng-c615085052="" appresizeddirective="" class="netmap"><app-svg-graph _ngcontent-ng-c615085052="" class="chart-container panCursor" _nghost-ng-c1312012984=""><ngx-charts-chart _ngcontent-ng-c1312012984="" mousewheel="" class="ng-tns-c228636265-1 ng-star-inserted"><div class="ngx-charts-outer ng-tns-c228636265-1 ng-trigger ng-trigger-animationState" style="width: 1494px;"><svg class="ngx-charts ng-tns-c228636265-1" width="1494" height="785"><g _ngcontent-ng-c1312012984="" class="graph chart ng-star-inserted" transform="matrix(1,0,0,1,865,431)" style=""><defs _ngcontent-ng-c1312012984=""><!----><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="a9h4w" d="M-314.423,-335.415L-186.241,-229.597" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="aqxm3" d="M-186.241,-229.597L-57.605,-335.415" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="akhcq" d="M-186.241,-229.597L-186.241,-79.96" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="adytb" d="M-485.969,29.222L-186.241,-79.96" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="a28fx" d="M-186.241,-79.96L6.577,29.222" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="adw5u" d="M-485.969,29.222L-485.969,128.858" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="a0wrt" d="M-8.423,29.222L-8.423,128.858" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="au6iz" d="M6.577,128.858L6.577,240.04" style=""></path><path _ngcontent-ng-c1312012984="" class="text-path ng-star-inserted" id="amrda" d="M21.577,29.222L21.577,128.858" style=""></path><!----></defs><rect _ngcontent-ng-c1312012984="" class="panning-rect" width="149400" height="78500" transform="translate(-74700,-39250)"></rect><!----><!----><g _ngcontent-ng-c1312012984="" class="clusters"><!----></g><g _ngcontent-ng-c1312012984="" class="links"><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="a9h4w"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-314.423,-335.415L-186.241,-229.597"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#a9h4w" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="aqxm3"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-57.605,-335.415L-186.241,-229.597"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#aqxm3" style="dominant-baseline: text-before-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="akhcq"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-186.241,-229.597L-186.241,-79.96"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#akhcq" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="adytb"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-186.241,-79.96L-485.969,29.222"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#adytb" style="dominant-baseline: text-before-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="a28fx"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-186.241,-79.96L6.577,29.222"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#a28fx" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="adw5u"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-485.969,29.222L-485.969,128.858"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#adw5u" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="a0wrt"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M-8.423,29.222L-8.423,128.858"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#a0wrt" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="au6iz"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M6.577,128.858L6.577,240.04"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#au6iz" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="link-group ng-star-inserted" id="amrda"><g _ngcontent-ng-c615085052="" class="edge ng-star-inserted"><path _ngcontent-ng-c615085052="" stroke-width="2" marker-end="url(#arrow)" class="line" d="M21.577,29.222L21.577,128.858"></path><text _ngcontent-ng-c615085052="" text-anchor="middle" class="edge-label"><textpath _ngcontent-ng-c615085052="" startOffset="50%" class="text-path" href="#amrda" style="dominant-baseline: text-after-edge;">  </textpath></text></g><!----><!----><!----></g><!----></g><g _ngcontent-ng-c1312012984="" class="nodes"><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="ae68021b-3914-ba07-dd61-4d511e3d49b2" transform="translate(-221.24142456054688, -255.84654235839844)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> EDGE-RTR
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="10f9e3c4-4b14-30e6-47bb-a6a4841b5d5a" transform="translate(-221.24142456054688, -106.2102279663086)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> HQ-CORE-RT
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="fcfe485f-4864-f1f9-369e-f75943a0b38f" transform="translate(-520.9687194824219, 2.971538543701172)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> DC-RTR
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="e980783e-9fd0-6abc-12c9-70539f20267e" transform="translate(228.66763305664062, 2.971538543701172)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> BRANCH1-RT
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="3da5ac4f-e4bb-1b4c-a305-ea16c49f68f6" transform="translate(228.66763305664062, 102.60798645019531)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> BRANCH2-RT
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="6b9a9b99-882a-e956-9bbd-cfc27b28687c" transform="translate(-349.4233093261719, -361.6647644042969)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> ISP-A
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="a9ae47b7-5152-15f6-f68b-8950735b19ec" transform="translate(-92.60506820678711, -361.6647644042969)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Router.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> ISP-B
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="17e0e0cd-01d7-0ec4-e604-d13666564209" transform="translate(-28.42330551147461, 2.971538543701172)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Switch.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> MLS-CORE
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="b1796758-144d-83d4-ed97-9a31a607c865" transform="translate(-28.42330551147461, 102.60798645019531)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Switch.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> MLS2
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="24dfa501-271a-3a4e-b9ca-37407c4cfadd" transform="translate(-28.42330551147461, 213.78981018066406)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Switch.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> Access-SW
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="734170aa-81cd-9718-92ab-0086d8292a52" transform="translate(-520.9687194824219, 102.60798645019531)"><g _ngcontent-ng-c615085052="" app-device-node="" class="node ng-star-inserted" _nghost-ng-c3520290483=""><defs _ngcontent-ng-c3520290483="" class="ng-star-inserted"><filter _ngcontent-ng-c3520290483="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeDragFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#ff0000"></fedropshadow></filter><filter _ngcontent-ng-c3520290483="" id="nodeSnapFilter"><fedropshadow _ngcontent-ng-c3520290483="" dx="2" dy="2" stdDeviation="2" flood-color="#00ff00"></fedropshadow></filter></defs><svg _ngcontent-ng-c3520290483="" version="1.1" id="svg9" class="node-icon ng-star-inserted" height="52.5"><g _ngcontent-ng-c3520290483="" inkscape:groupmode="layer" inkscape:label="Image" id="g15"><image _ngcontent-ng-c3520290483="" preserveAspectRatio="xMaxYMax" x="0" height="52.5" href="/assets/images/Switch.png"></image></g></svg><!----><svg _ngcontent-ng-c3520290483="" style="border: 1px solid black;" height="17.5" x="0" y="52.5" class="ng-star-inserted"><rect _ngcontent-ng-c3520290483="" fill="red" style="fill: #ffba00; fill-rule: evenodd; fill-opacity: 0.85;" height="17.5" width="70"></rect></svg><!----><text _ngcontent-ng-c3520290483="" text-anchor="middle" class="node-text ng-star-inserted" height="17.5" y="66.5" x="35"> DC-SW
+</text><!----><!----><!----></g><!----><!----><!----><!----><!----></g><g _ngcontent-ng-c1312012984="" class="node-group ng-star-inserted" id="SelectionSquare" transform="translate(-12.5, -12.5)"><!----><g _ngcontent-ng-c615085052="" class="node ng-star-inserted"><defs _ngcontent-ng-c615085052=""><filter _ngcontent-ng-c615085052="" id="nodeShadowFilter"><fedropshadow _ngcontent-ng-c615085052="" dx="2" dy="2" stdDeviation="2" flood-color="#222"></fedropshadow></filter></defs><!----><!----></g><!----><!----><!----><!----></g><!----></g></g><!----><clippath _ngcontent-ng-c1312012984="" class="ng-tns-c228636265-1" id="minimapClipabjlx"><rect _ngcontent-ng-c1312012984="" width="100" height="82.91726481501368"></rect></clippath><!----></svg><!----><!----></div></ngx-charts-chart></app-svg-graph></div></app-netmap><!----></div></my-tab><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane" hidden=""><app-console class="ng-star-inserted"><div tabindex="0" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="console ng-star-inserted" style="background-color: rgb(0, 0, 0); color: rgb(50, 205, 50); font-family: &quot;Courier New&quot;, monospace; font-size: 11pt;"><span class="cursor">_</span></div><!----><!----></app-console><!----></div></my-tab><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane" hidden=""><app-console class="ng-star-inserted"><div tabindex="0" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="console ng-star-inserted" style="background-color: rgb(0, 0, 0); color: rgb(50, 205, 50); font-family: &quot;Courier New&quot;, monospace; font-size: 11pt;">
+Switch#en
+        ^
+% Invalid input detected at '^' marker.
+
+Switch#en
+        ^
+% Invalid input detected at '^' marker.
+
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#ex
+Switch#Type this:
+%Incomplete command. 
+
+
+Switch#```
+%Incomplete command. 
+
+Switch#hostname Access-SW
+        ^
+% Invalid input detected at '^' marker.
+
+Switch#```
+%Incomplete command. 
+
+
+%Incomplete command. 
+
+Switch#Then we continue with the rest of the config!
+%Incomplete command. 
+
+Switch#hostname Access-SW
+        ^
+% Invalid input detected at '^' marker.
+
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname Access-SW
+VLAN 10 added:
+    Name:HR
+VLAN 20 added:
+    Name:IT
+VLAN 30 added:
+    Name:SERVERS
+VLAN 40 added:
+    Name:MANAGEMENT
+VLAN 99 added:
+    Name:NATIVE
+00:05:46: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0040, changed state to up
+
+Access-SW#
+%Incomplete command. 
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+            ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+            ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+            ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+           ^
+% Invalid input detected at '^' marker.
+
+            ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+            ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+Access-SW con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+Access-SW&gt;  conf t
+             ^
+% Invalid input detected at '^' marker.
+
+Access-SW&gt;en
+Access-SW#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Access-SW(config)#end
+Access-SW#do show running-config
+             ^
+% Invalid input detected at '^' marker.
+
+Access-SW#en
+           ^
+% Invalid input detected at '^' marker.
+
+Access-SW#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Access-SW(config)#do show running-config
+Building configuration...
+
+Current configuration : 2591 bytes
+!
+Version 15.b
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname Access-SW
+!
+!
+!
+!
+ip subnet-zero
+!
+ip cef
+no ip domain-lookup
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+!
+interface FastEthernet0/1
+ description TRUNK-TO-MLS-CORE
+ switchport trunk native vlan 99
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+ spanning-tree guard root
+!
+interface FastEthernet0/2
+ description HR-HOST
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/3
+ description HR-HOST
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/4
+ description HR-HOST
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/5
+ description HR-HOST
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/6
+ description IT-HOST
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/7
+ description IT-HOST
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/8
+ description IT-HOST
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface GigabitEthernet0/0
+!
+interface GigabitEthernet0/1
+!
+!
+interface Vlan 1
+ no ip address
+ no ip route-cache
+!
+interface Vlan0040
+ ip address 10.40.40.50 255.255.255.0
+ no ip route-cache
+!
+vlan 10 name HR
+vlan 20 name IT
+vlan 30 name SERVERS
+vlan 40 name MANAGEMENT
+vlan 99 name NATIVE
+!
+ip default-gateway 10.40.40.1
+!
+!
+ip classless
+no ip http server
+!
+!
+!
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 15
+ login 
+!
+!
+no scheduler allocate
+end
+Access-SW(config)#
+Access-SW(config)#
+Access-SW#write memory
+Building configuration...
+[OK]
+
+Access-SW#
+Access-SW#
+Access-SW#
+00:38:35: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:39:30: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:40:25: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:41:20: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:42:15: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:43:10: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:44:05: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:45:00: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:45:55: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:46:50: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:47:45: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:48:40: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:49:35: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:50:30: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:51:25: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:52:20: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:53:15: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:54:10: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+00:55:05: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/0 (1), with MLS-2 FastEthernet0/1 (99).
+<span class="cursor">_</span></div><!----><!----></app-console><!----></div></my-tab><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane" hidden=""><app-console class="ng-star-inserted"><div tabindex="0" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="console ng-star-inserted" style="background-color: rgb(0, 0, 0); color: rgb(50, 205, 50); font-family: &quot;Courier New&quot;, monospace; font-size: 11pt;">
+Switch&gt;
+Switch&gt;en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname DC-SW
+DC-SW(config)#spanning-tree mode rapid-pvst
+DC-SW(config)#vlan 100
+DC-SW(config-vlan)# name DC-PROD
+DC-SW(config-vlan)#vlan 200
+VLAN 100 added:
+    Name:DC-PROD
+DC-SW(config-vlan)# name DC-MGMT
+DC-SW(config-vlan)#spanning-tree vlan 100,200 priority 8192
+VLAN 200 added:
+    Name:DC-MGMT
+DC-SW(config)#ip dhcp snooping
+DC-SW(config)#ip dhcp snooping vlan 100,200
+DC-SW(config)#interface FastEthernet0/1
+DC-SW(config-if)# switchport mode trunk
+DC-SW(config-if)# switchport trunk allowed vlan 100,200
+DC-SW(config-if)# no shutdown
+DC-SW(config-if)#exit
+DC-SW(config)#interface range FastEthernet0/2 - 5
+DC-SW(config-if-range)# switchport mode access
+DC-SW(config-if-range)# switchport access vlan 100
+DC-SW(config-if-range)# spanning-tree portfast
+DC-SW(config-if-range)# spanning-tree bpduguard enable
+DC-SW(config-if-range)# no shutdown
+DC-SW(config-if-range)#exit
+DC-SW(config)#interface range FastEthernet0/6 - 8
+DC-SW(config-if-range)# switchport mode access
+DC-SW(config-if-range)# switchport access vlan 200
+DC-SW(config-if-range)# spanning-tree portfast
+DC-SW(config-if-range)# spanning-tree bpduguard enable
+DC-SW(config-if-range)# no shutdown
+DC-SW(config-if-range)#exit
+DC-SW(config)#interface vlan 200
+DC-SW(config-if)# ip address 10.100.20.50 255.255.255.0
+DC-SW(config-if)# no shutdown
+DC-SW(config-if)#exit
+DC-SW(config)#ip default-gateway 10.100.20.1
+00:18:34: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0200, changed state to up
+00:18:40: %LINK-3-UPDOWN: Interface Vlan0200, changed state to down
+00:18:40: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0200, changed state to down
+
+DC-SW#
+DC-SW#write memory
+Building configuration...
+[OK]
+
+DC-SW#
+DC-SW#
+00:47:36: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+00:47:36: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan 1, changed state to up
+<span class="cursor">_</span></div><!----><!----></app-console><!----></div></my-tab><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane" hidden=""><app-console class="ng-star-inserted"><div tabindex="0" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="console ng-star-inserted" style="background-color: rgb(0, 0, 0); color: rgb(50, 205, 50); font-family: &quot;Courier New&quot;, monospace; font-size: 11pt;">
+Switch&gt;en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname MLS-CORE
+MLS-CORE(config)#ip routing
+MLS-CORE(config)#spanning-tree mode rapid-pvst
+MLS-CORE(config)#vlan 10
+MLS-CORE(config-vlan)# name HR
+MLS-CORE(config-vlan)#vlan 20
+VLAN 10 added:
+    Name:HR
+MLS-CORE(config-vlan)# name IT
+MLS-CORE(config-vlan)#vlan 30
+VLAN 20 added:
+    Name:IT
+MLS-CORE(config-vlan)# name SERVERS
+MLS-CORE(config-vlan)#vlan 40
+VLAN 30 added:
+    Name:SERVERS
+MLS-CORE(config-vlan)# name MANAGEMENT
+MLS-CORE(config-vlan)#vlan 99
+VLAN 40 added:
+    Name:MANAGEMENT
+MLS-CORE(config-vlan)# name NATIVE
+MLS-CORE(config-vlan)#spanning-tree vlan 10,20,30,40 priority 4096
+VLAN 99 added:
+    Name:NATIVE
+MLS-CORE(config)#spanning-tree vlan 99 priority 4096
+MLS-CORE(config)#interface FastEthernet0/2
+MLS-CORE(config-if)# switchport trunk encapsulation dot1q
+MLS-CORE(config-if)# switchport mode trunk
+MLS-CORE(config-if)# switchport trunk native vlan 99
+MLS-CORE(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-CORE(config-if)# channel-group 1 mode active
+Creating a port-channel interface Port-channel 1
+
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface FastEthernet0/3
+MLS-CORE(config-if)# switchport trunk encapsulation dot1q
+MLS-CORE(config-if)# switchport mode trunk
+MLS-CORE(config-if)# switchport trunk native vlan 99
+MLS-CORE(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-CORE(config-if)# channel-group 1 mode active
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface Port-channel1
+MLS-CORE(config-if)# switchport trunk encapsulation dot1q
+MLS-CORE(config-if)# switchport mode trunk
+MLS-CORE(config-if)# switchport trunk native vlan 99
+MLS-CORE(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface FastEthernet0/4
+MLS-CORE(config-if)# switchport trunk encapsulation dot1q
+MLS-CORE(config-if)# switchport mode trunk
+MLS-CORE(config-if)# switchport trunk native vlan 99
+MLS-CORE(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface FastEthernet0/1
+MLS-CORE(config-if)# no switchport
+MLS-CORE(config-if)# ip address 10.2.0.2 255.255.255.252
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface vlan 10
+MLS-CORE(config-if)# ip address 10.10.10.2 255.255.255.0
+MLS-CORE(config-if)# standby 10 ip 10.10.10.1
+MLS-CORE(config-if)# standby 10 priority 110
+00:36:19: %HSRP-6-STATECHANGE: Vlan0010 Grp 10 state Active -&gt; Init
+MLS-CORE(config-if)# standby 10 preempt
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface vlan 20
+MLS-CORE(config-if)# ip address 10.20.20.2 255.255.255.0
+MLS-CORE(config-if)# standby 20 ip 10.20.20.1
+MLS-CORE(config-if)# standby 20 priority 110
+00:36:19: %HSRP-6-STATECHANGE: Vlan0020 Grp 20 state Active -&gt; Init
+MLS-CORE(config-if)# standby 20 preempt
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface vlan 30
+MLS-CORE(config-if)# ip address 10.30.30.2 255.255.255.0
+MLS-CORE(config-if)# standby 30 ip 10.30.30.1
+MLS-CORE(config-if)# standby 30 priority 110
+00:36:19: %HSRP-6-STATECHANGE: Vlan0030 Grp 30 state Active -&gt; Init
+MLS-CORE(config-if)# standby 30 preempt
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#interface vlan 40
+MLS-CORE(config-if)# ip address 10.40.40.2 255.255.255.0
+MLS-CORE(config-if)# standby 40 ip 10.40.40.1
+MLS-CORE(config-if)# standby 40 priority 110
+00:36:19: %HSRP-6-STATECHANGE: Vlan0040 Grp 40 state Active -&gt; Init
+MLS-CORE(config-if)# standby 40 preempt
+MLS-CORE(config-if)# no shutdown
+MLS-CORE(config-if)#exit
+MLS-CORE(config)#router ospf 1
+MLS-CORE(config-router)# router-id 4.4.4.4
+00:36:20: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0010, changed state to up
+00:36:20: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0020, changed state to up
+00:36:20: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0030, changed state to up
+00:36:20: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0040, changed state to up
+MLS-CORE(config-router)# network 10.2.0.0 0.0.0.3 area 2
+MLS-CORE(config-router)# network 10.10.10.0 0.0.0.255 area 2
+MLS-CORE(config-router)# network 10.20.20.0 0.0.0.255 area 2
+MLS-CORE(config-router)# network 10.30.30.0 0.0.0.255 area 2
+MLS-CORE(config-router)# network 10.40.40.0 0.0.0.255 area 2
+MLS-CORE(config-router)# passive-interface vlan 10
+MLS-CORE(config-router)# passive-interface vlan 20
+MLS-CORE(config-router)# passive-interface vlan 30
+MLS-CORE(config-router)# passive-interface vlan 40
+MLS-CORE(config-router)#end
+MLS-CORE#write memory
+Building configuration...
+[OK]
+
+MLS-CORE#
+00:38:06: %LINK-3-UPDOWN: Interface Port-channel1, changed state to up
+00:38:06: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel1, changed state to up
+00:39:00: %HSRP-6-STATECHANGE: Vlan0010 Grp 10 state Init -&gt; Active
+00:39:00: %HSRP-6-STATECHANGE: Vlan0020 Grp 20 state Init -&gt; Active
+00:39:00: %HSRP-6-STATECHANGE: Vlan0030 Grp 30 state Init -&gt; Active
+00:39:00: %HSRP-6-STATECHANGE: Vlan0040 Grp 40 state Init -&gt; Active
+<span class="cursor">_</span></div><!----><!----></app-console><!----></div></my-tab><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane" hidden=""><app-console class="ng-star-inserted"><div tabindex="0" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="console ng-star-inserted" style="background-color: rgb(0, 0, 0); color: rgb(50, 205, 50); font-family: &quot;Courier New&quot;, monospace; font-size: 11pt;">
+Switch&gt;en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname MLS-2
+00:37:40: %CDP-4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/2 (1), with MLS-CORE FastEthernet0/2 (99).
+
+MLS-2(config)#ip routing
+MLS-2(config)#spanning-tree mode rapid-pvst
+MLS-2(config)#vlan 10
+MLS-2(config-vlan)# name HR
+MLS-2(config-vlan)#vlan 20
+VLAN 10 added:
+    Name:HR
+MLS-2(config-vlan)# name IT
+MLS-2(config-vlan)#vlan 30
+VLAN 20 added:
+    Name:IT
+MLS-2(config-vlan)# name SERVERS
+MLS-2(config-vlan)#vlan 40
+VLAN 30 added:
+    Name:SERVERS
+MLS-2(config-vlan)# name MANAGEMENT
+MLS-2(config-vlan)#vlan 99
+VLAN 40 added:
+    Name:MANAGEMENT
+MLS-2(config-vlan)# name NATIVE
+MLS-2(config-vlan)#spanning-tree vlan 10,20,30,40 priority 8192
+VLAN 99 added:
+    Name:NATIVE
+MLS-2(config)#interface FastEthernet0/1
+MLS-2(config-if)# switchport trunk encapsulation dot1q
+MLS-2(config-if)# switchport mode trunk
+MLS-2(config-if)# switchport trunk native vlan 99
+MLS-2(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-2(config-if)# channel-group 1 mode passive
+Creating a port-channel interface Port-channel 1
+
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface FastEthernet0/2
+MLS-2(config-if)# switchport trunk encapsulation dot1q
+MLS-2(config-if)# switchport mode trunk
+MLS-2(config-if)# switchport trunk native vlan 99
+MLS-2(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-2(config-if)# channel-group 1 mode passive
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface Port-channel1
+MLS-2(config-if)# switchport trunk encapsulation dot1q
+MLS-2(config-if)# switchport mode trunk
+MLS-2(config-if)# switchport trunk native vlan 99
+MLS-2(config-if)# switchport trunk allowed vlan 10,20,30,40
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface FastEthernet0/0
+MLS-2(config-if)# no switchport
+MLS-2(config-if)# ip address 10.2.0.4 255.255.255.252
+Bad mask /30 for address 10.2.0.4
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface vlan 10
+MLS-2(config-if)# ip address 10.10.10.3 255.255.255.0
+MLS-2(config-if)# standby 10 ip 10.10.10.1
+MLS-2(config-if)# standby 10 priority 90
+00:38:02: %HSRP-6-STATECHANGE: Vlan0010 Grp 10 state Active -&gt; Init
+MLS-2(config-if)# standby 10 preempt
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface vlan 20
+MLS-2(config-if)# ip address 10.20.20.3 255.255.255.0
+MLS-2(config-if)# standby 20 ip 10.20.20.1
+MLS-2(config-if)# standby 20 priority 90
+00:38:02: %HSRP-6-STATECHANGE: Vlan0020 Grp 20 state Active -&gt; Init
+MLS-2(config-if)# standby 20 preempt
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface vlan 30
+MLS-2(config-if)# ip address 10.30.30.3 255.255.255.0
+MLS-2(config-if)# standby 30 ip 10.30.30.1
+MLS-2(config-if)# standby 30 priority 90
+00:38:03: %HSRP-6-STATECHANGE: Vlan0030 Grp 30 state Active -&gt; Init
+MLS-2(config-if)# standby 30 preempt
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#interface vlan 40
+MLS-2(config-if)# ip address 10.40.40.3 255.255.255.0
+MLS-2(config-if)# standby 40 ip 10.40.40.1
+MLS-2(config-if)# standby 40 priority 90
+00:38:03: %HSRP-6-STATECHANGE: Vlan0040 Grp 40 state Active -&gt; Init
+MLS-2(config-if)# standby 40 preempt
+MLS-2(config-if)# no shutdown
+MLS-2(config-if)#exit
+MLS-2(config)#router ospf 1
+MLS-2(config-router)# router-id 5.5.5.5
+MLS-2(config-router)# network 10.2.0.4 0.0.0.3 area 2
+MLS-2(config-router)# network 10.10.10.0 0.0.0.255 area 2
+MLS-2(config-router)# network 10.20.20.0 0.0.0.255 area 2
+MLS-2(config-router)# network 10.30.30.0 0.0.0.255 area 2
+MLS-2(config-router)# network 10.40.40.0 0.0.0.255 area 2
+MLS-2(config-router)# passive-interface vlan 10
+MLS-2(config-router)# passive-interface vlan 20
+MLS-2(config-router)# passive-interface vlan 30
+MLS-2(config-router)# passive-interface vlan 40
+00:38:04: %LINK-3-UPDOWN: Interface Port-channel1, changed state to up
+00:38:04: %LINEPROTO-5-UPDOWN: Line protocol on Interface Port-channel1, changed state to up
+00:38:04: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0010, changed state to up
+00:38:04: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0020, changed state to up
+00:38:04: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0030, changed state to up
+00:38:04: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan0040, changed state to up
+
+MLS-2#
+MLS-2#write memory
+Building configuration...
+[OK]
+
+MLS-2#
+MLS-2#
+00:39:00: %HSRP-6-STATECHANGE: Vlan0010 Grp 10 state Init -&gt; Standby
+00:39:00: %HSRP-6-STATECHANGE: Vlan0020 Grp 20 state Init -&gt; Active
+00:39:00: %HSRP-6-STATECHANGE: Vlan0030 Grp 30 state Init -&gt; Active
+00:39:00: %HSRP-6-STATECHANGE: Vlan0040 Grp 40 state Init -&gt; Active
+00:39:00: %HSRP-6-STATECHANGE: Vlan0020 Grp 20 state Active -&gt; Speak
+00:39:00: %HSRP-6-STATECHANGE: Vlan0020 Grp 20 state Speak -&gt; Standby
+00:39:00: %HSRP-6-STATECHANGE: Vlan0030 Grp 30 state Active -&gt; Speak
+00:39:00: %HSRP-6-STATECHANGE: Vlan0030 Grp 30 state Speak -&gt; Standby
+00:39:00: %HSRP-6-STATECHANGE: Vlan0040 Grp 40 state Active -&gt; Speak
+00:39:00: %HSRP-6-STATECHANGE: Vlan0040 Grp 40 state Speak -&gt; Standby
+<span class="cursor">_</span></div><!----><!----></app-console><!----></div></my-tab><my-tab _nghost-ng-c14773305="" class="ng-star-inserted"><div _ngcontent-ng-c14773305="" class="tab-pane"><app-console class="ng-star-inserted"><div tabindex="0" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="console ng-star-inserted" style="background-color: rgb(0, 0, 0); color: rgb(50, 205, 50); font-family: &quot;Courier New&quot;, monospace; font-size: 11pt;">
+Router&gt;en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname DC-RTR
+DC-RTR(config)#ip routing
+DC-RTR(config)#ip vrf PROD
+DC-RTR(config-vrf)# rd 1:1
+%Incomplete command. 
+
+DC-RTR(config-vrf)#exit
+DC-RTR#ip vrf MGMT
+%Incomplete command. 
+
+DC-RTR# rd 2:2
+        ^
+% Invalid input detected at '^' marker.
+
+DC-RTR#exit
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+%Incomplete command. 
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+         ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+         ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+         ^
+% Invalid input detected at '^' marker.
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+DC-RTR&gt;en
+DC-RTR#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+DC-RTR(config)#ip routing
+DC-RTR(config)#ip vrf PROD
+%Incomplete command. 
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+%Incomplete command. 
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+         ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+         ^
+% Invalid input detected at '^' marker.
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+         ^
+% Invalid input detected at '^' marker.
+
+         ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+%Incomplete command. 
+
+%Incomplete command. 
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+
+
+
+
+
+
+
+
+
+DC-RTR con0 is now available
+
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+        ^
+% Invalid input detected at '^' marker.
+
+        ^
+% Invalid input detected at '^' marker.
+
+DC-RTR&gt;show running-config
+            ^
+% Invalid input detected at '^' marker.
+
+DC-RTR&gt;en
+DC-RTR#show running-config
+Building configuration...
+
+Current configuration : 718 bytes
+!
+Version 15.b
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname DC-RTR
+!
+!
+!
+!
+ip subnet-zero
+ip vrf PROD
+!
+!
+ip cef
+no ip domain-lookup
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ no ip directed-broadcast
+ shutdown
+!
+interface FastEthernet1/0
+ no ip address
+ no ip directed-broadcast
+ shutdown
+!
+interface FastEthernet2/0
+ no ip address
+ no ip directed-broadcast
+ shutdown
+!
+interface FastEthernet3/0
+ no ip address
+ no ip directed-broadcast
+ shutdown
+!
+!
+!
+!
+!
+ip classless
+no ip http server
+!
+!
+!
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login 
+!
+!
+no scheduler allocate
+end
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#
+DC-RTR#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+DC-RTR(config)#ip vrf MGMT
+DC-RTR(config-vrf)#exit
+DC-RTR#interface FastEthernet0/0
+%Incomplete command. 
+
+DC-RTR#int fa0/0
+%Incomplete command. 
+
+DC-RTR#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+DC-RTR(config)#interface FastEthernet0/0
+DC-RTR(config-if)#ip address 10.1.0.2 255.255.255.252
+DC-RTR(config-if)#no shutdown
+00:47:13: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to up
+00:47:14: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+DC-RTR(config-if)#exit
+00:47:20: %LINK-3-UPDOWN: Interface FastEthernet0/0, changed state to down
+00:47:20: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to down
+
+DC-RTR(config)#interface FastEthernet1/0
+DC-RTR(config-if)#no sh
+DC-RTR(config-if)#no shutdown 
+00:47:35: %LINK-3-UPDOWN: Interface FastEthernet1/0, changed state to up
+00:47:36: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0, changed state to up
+DC-RTR(config-if)#exit
+DC-RTR(config)#$g PROD ip address 10.100.10.1 255.255.255.0 no shutdownexit
+                                             ^
+% Invalid input detected at '^' marker.
+
+DC-RTR(config)#
+DC-RTR(config)#interface FastEthernet1/0.100
+DC-RTR(config-subif)#encapsulation dot1Q 100
+DC-RTR(config-subif)#ip vrf forwarding PROD
+DC-RTR(config-subif)#ip address 10.100.10.1 255.255.255.0
+DC-RTR(config-subif)#no shutdownexit
+                             ^
+% Invalid input detected at '^' marker.
+
+DC-RTR(config-subif)#no sh
+DC-RTR(config-subif)#no shutdown 
+DC-RTR(config-subif)#exit
+DC-RTR(config)#$et1/0.200 encapsulation dot1Q 200 ip vrf forwarding MGMT
+                                             ^
+% Invalid input detected at '^' marker.
+
+DC-RTR(config)#interface FastEthernet1/0.200 encapsulation dot1Q 200
+                                             ^
+% Invalid input detected at '^' marker.
+
+DC-RTR(config)#interface FastEthernet1/0.200
+DC-RTR(config-subif)#encapsulation dot1Q 200
+DC-RTR(config-subif)#ip vrf forwarding MGMT
+DC-RTR(config-subif)#ip address 10.100.20.1 255.255.255.0
+DC-RTR(config-subif)#no shutdown
+DC-RTR(config-subif)#exit
+DC-RTR(config)#router ospf 1
+DC-RTR(config-router)#router-id 3.3.3.3
+DC-RTR(config-router)#network 10.1.0.0 0.0.0.3 area 1
+DC-RTR(config-router)#exit
+DC-RTR(config)#$100.10.10ip dhcp excluded-address 10.100.20.1 10.100.20.10
+                                                                ^
+% Invalid input detected at '^' marker.
+
+DC-RTR(config)#ip dhcp excluded-address 10.100.10.1 10.100.10.10
+DC-RTR(config)#ip dhcp excluded-address 10.100.20.1 10.100.20.10
+DC-RTR(config)#ip dhcp pool DC-PROD
+DC-RTR(dhcp-config)#network 10.100.10.0 255.255.255.0
+DC-RTR(dhcp-config)# default-router 10.100.10.1
+DC-RTR(dhcp-config)#exit
+DC-RTR(config)#ip dhcp pool DC-MGMT
+DC-RTR(dhcp-config)#network 10.100.20.0 255.255.255.0
+DC-RTR(dhcp-config)#default-router 10.100.20.1
+DC-RTR(dhcp-config)#end
+DC-RTR#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+FastEthernet0/0        10.1.0.2        YES manual down                  down
+FastEthernet1/0        unassigned      YES unset  up                    up
+FastEthernet1/0.100    10.100.10.1     YES manual up                    up
+FastEthernet1/0.200    10.100.20.1     YES manual up                    up
+FastEthernet2/0        unassigned      YES unset  administratively down down
+FastEthernet3/0        unassigned      YES unset  administratively down down
+
+DC-RTR#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+DC-RTR(config)#interface FastEthernet0/0
+DC-RTR(config-if)# no shutdown
+DC-RTR(config-if)#end
+DC-RTR#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+FastEthernet0/0        10.1.0.2        YES manual down                  down
+FastEthernet1/0        unassigned      YES unset  up                    up
+FastEthernet1/0.100    10.100.10.1     YES manual up                    up
+FastEthernet1/0.200    10.100.20.1     YES manual up                    up
+FastEthernet2/0        unassigned      YES unset  administratively down down
+FastEthernet3/0        unassigned      YES unset  administratively down down
+
+DC-RTR#write memory
+Building configuration...
+[OK]
+
+DC-RTR#<span class="cursor">_</span></div><!----><!----></app-console><!----></div></my-tab><!----></div></my-tabs></div><div _ngcontent-ng-c4116344618="" class="right-col"><div _ngcontent-ng-c4116344618="" id="connections-card" class="card"><div _ngcontent-ng-c4116344618="" class="card-header">Connections</div><div _ngcontent-ng-c4116344618=""><app-connections _ngcontent-ng-c4116344618="" _nghost-ng-c2285376402=""><div _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="row narrowSection ng-star-inserted"><div _ngcontent-ng-c2285376402="" class="col-lg-3"><label _ngcontent-ng-c2285376402="">Sort:</label></div><div _ngcontent-ng-c2285376402="" class="col-lg-9"><select _ngcontent-ng-c2285376402="" class="form-control"><option _ngcontent-ng-c2285376402="" value="Device1Name">Device Name</option><option _ngcontent-ng-c2285376402="" value="ConnectorType">Connection Type</option><option _ngcontent-ng-c2285376402="" value="Device2Name">Second Device Name</option></select></div></div><!----><div _ngcontent-ng-c2285376402="" id="connections-height" class="table connections-card ng-star-inserted"><table _ngcontent-ng-c2285376402=""><tr _ngcontent-ng-c2285376402="" title="DC-RTR FastEthernet1/0 connected to DC-SW FastEthernet0/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">DC-RTR</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between DC-RTR FastEthernet1/0 and DC-SW FastEthernet0/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">DC-SW</td></tr><tr _ngcontent-ng-c2285376402="" title="EDGE-RTR FastEthernet2/0 connected to HQ-CORE-RT FastEthernet0/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">EDGE-RTR</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between EDGE-RTR FastEthernet2/0 and HQ-CORE-RT FastEthernet0/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">HQ-CORE-RT</td></tr><tr _ngcontent-ng-c2285376402="" title="HQ-CORE-RT FastEthernet1/0 connected to DC-RTR FastEthernet0/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">HQ-CORE-RT</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between HQ-CORE-RT FastEthernet1/0 and DC-RTR FastEthernet0/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">DC-RTR</td></tr><tr _ngcontent-ng-c2285376402="" title="HQ-CORE-RT FastEthernet2/0 connected to MLS-CORE FastEthernet0/1" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">HQ-CORE-RT</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between HQ-CORE-RT FastEthernet2/0 and MLS-CORE FastEthernet0/1."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">MLS-CORE</td></tr><tr _ngcontent-ng-c2285376402="" title="ISP-A FastEthernet0/0 connected to EDGE-RTR FastEthernet0/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">ISP-A</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between ISP-A FastEthernet0/0 and EDGE-RTR FastEthernet0/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">EDGE-RTR</td></tr><tr _ngcontent-ng-c2285376402="" title="ISP-B FastEthernet0/0 connected to EDGE-RTR FastEthernet1/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">ISP-B</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between ISP-B FastEthernet0/0 and EDGE-RTR FastEthernet1/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">EDGE-RTR</td></tr><tr _ngcontent-ng-c2285376402="" title="MLS-CORE FastEthernet0/0 connected to MLS2 FastEthernet0/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">MLS-CORE</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between MLS-CORE FastEthernet0/0 and MLS2 FastEthernet0/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">MLS2</td></tr><tr _ngcontent-ng-c2285376402="" title="MLS-CORE FastEthernet0/2 connected to MLS2 FastEthernet0/2" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">MLS-CORE</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between MLS-CORE FastEthernet0/2 and MLS2 FastEthernet0/2."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">MLS2</td></tr><tr _ngcontent-ng-c2285376402="" title="MLS2 FastEthernet0/1 connected to Access-SW FastEthernet0/0" class="ng-star-inserted"><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="">MLS2</div></td><td _ngcontent-ng-c2285376402=""><div _ngcontent-ng-c2285376402="" class="ng-star-inserted"><img _ngcontent-ng-c2285376402="" src="./DC-RTR_files/Ethernet.png" class="icon" alt="An Ethernet connection between MLS2 FastEthernet0/1 and Access-SW FastEthernet0/0."></div><!----><!----></td><td _ngcontent-ng-c2285376402="">Access-SW</td></tr><!----></table></div><!----><!----><!----></div></app-connections></div></div><div _ngcontent-ng-c4116344618="" id="devices-card" class="card"><div _ngcontent-ng-c4116344618="" class="card-header">Devices</div><div _ngcontent-ng-c4116344618=""><app-devices _ngcontent-ng-c4116344618="" _nghost-ng-c2272267441=""><div _ngcontent-ng-c2272267441=""><div _ngcontent-ng-c2272267441="" id="devices-height" class="table devices-card ng-star-inserted"><table _ngcontent-ng-c2272267441=""><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for EDGE-RTR."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">EDGE-RTR</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for EDGE-RTR in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for EDGE-RTR in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for HQ-CORE-RT."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">HQ-CORE-RT</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for HQ-CORE-RT in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for HQ-CORE-RT in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for DC-RTR."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">DC-RTR</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for DC-RTR in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for DC-RTR in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for BRANCH1-RT."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">BRANCH1-RT</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for BRANCH1-RT in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for BRANCH1-RT in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for BRANCH2-RT."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">BRANCH2-RT</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for BRANCH2-RT in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for BRANCH2-RT in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for ISP-A."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">ISP-A</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for ISP-A in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for ISP-A in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Router.png" class="device-icon" alt="A router icon for ISP-B."></div><!----><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">ISP-B</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for ISP-B in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for ISP-B in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><!----><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Switch.png" class="device-icon" alt="A switch icon for MLS-CORE."></div><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">MLS-CORE</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for MLS-CORE in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for MLS-CORE in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><!----><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Switch.png" class="device-icon" alt="A switch icon for MLS2."></div><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">MLS2</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for MLS2 in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for MLS2 in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><!----><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Switch.png" class="device-icon" alt="A switch icon for Access-SW."></div><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">Access-SW</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for Access-SW in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for Access-SW in a new browser tab."></span></td></tr><tr _ngcontent-ng-c2272267441="" class="align-middle ng-star-inserted"><td _ngcontent-ng-c2272267441="" class="device-icon"><!----><div _ngcontent-ng-c2272267441="" class="ng-star-inserted"><img _ngcontent-ng-c2272267441="" src="./DC-RTR_files/Switch.png" class="device-icon" alt="A switch icon for DC-SW."></div><!----><!----><!----><!----></td><td _ngcontent-ng-c2272267441="" class="device-name">DC-SW</td><td _ngcontent-ng-c2272267441="" class="device-actions"><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-console pt-1" title="Open console for DC-SW in this browser tab."></span><span _ngcontent-ng-c2272267441="" class="consoleLink mdi mdi-open-in-new pt-1" title="Open console for DC-SW in a new browser tab."></span></td></tr><!----></table></div><!----><!----><!----></div></app-devices></div></div></div></div><!----><!----></div></app-main><!----></div></div><!----><!----></app-root>
+  <script src="./DC-RTR_files/runtime.js.download" type="module"></script><script src="./DC-RTR_files/polyfills.js.download" type="module"></script><script src="./DC-RTR_files/scripts.js.download" defer=""></script><script src="./DC-RTR_files/vendor.js.download" type="module"></script><script src="./DC-RTR_files/main.js.download" type="module"></script>
+
+</body></html>
